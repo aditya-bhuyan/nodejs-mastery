@@ -21,6 +21,18 @@ function switchOs(evt, panelId, group) {
   document.getElementById(panelId).classList.add('active');
 }
 
+/* ===== Sidebar nav-group toggle ===== */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.sidebar .nav-group-label').forEach(function (label) {
+    label.addEventListener('click', function (e) {
+      // Don't toggle when the inner link itself is clicked
+      if (e.target.tagName === 'A') return;
+      var group = label.closest('.nav-group');
+      group.classList.toggle('open');
+    });
+  });
+});
+
 /* ===== Active nav highlight ===== */
 (function () {
   const path = location.pathname.replace(/\/$/, '') || '/index.html';

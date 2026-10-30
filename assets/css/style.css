@@ -85,9 +85,9 @@ nav a.active { color: #fff; font-weight: 600; }
 
 .sidebar-layout {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 248px 1fr;
   gap: 2.5rem;
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 2.5rem 1.5rem 4rem;
 }
@@ -97,25 +97,34 @@ nav a.active { color: #fff; font-weight: 600; }
   position: sticky;
   top: 72px;
   align-self: start;
+  max-height: calc(100vh - 88px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
 
 .sidebar h3 {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   color: var(--muted);
-  margin-bottom: 0.6rem;
+  margin: 1.1rem 0 0.4rem;
+  padding: 0 0.4rem;
 }
+.sidebar h3:first-child { margin-top: 0; }
 
 .sidebar ul { list-style: none; }
 .sidebar ul li a {
   display: block;
-  padding: 0.3rem 0.6rem;
+  padding: 0.28rem 0.6rem;
   border-radius: 5px;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--muted);
   border-left: 2px solid transparent;
   transition: all 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .sidebar ul li a:hover {
   color: var(--accent);
@@ -127,6 +136,65 @@ nav a.active { color: #fff; font-weight: 600; }
   border-left-color: var(--accent);
   background: #eff6ff;
   font-weight: 600;
+}
+
+/* Nav group — collapsible chapter block */
+.sidebar .nav-group { margin-bottom: 0.2rem; }
+
+.sidebar .nav-group-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.32rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s;
+}
+.sidebar .nav-group-label:hover { background: var(--surface); }
+.sidebar .nav-group-label .arrow {
+  font-size: 0.65rem;
+  color: var(--muted);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.sidebar .nav-group.open > .nav-group-label .arrow { transform: rotate(90deg); }
+.sidebar .nav-group-label a {
+  color: var(--text);
+  font-weight: 600;
+  flex: 1;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.sidebar .nav-group-label a:hover { text-decoration: none; }
+
+.sidebar .nav-group-items {
+  display: none;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--border);
+  margin: 0.15rem 0 0.15rem 0.8rem;
+}
+.sidebar .nav-group.open > .nav-group-items { display: block; }
+
+/* Current-chapter sub-items label */
+.sidebar .section-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  padding: 0.3rem 0.6rem 0.1rem;
+  display: block;
+}
+
+/* Divider between sidebar sections */
+.sidebar hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0.8rem 0;
 }
 
 /* ===== Chapter nav tabs ===== */
@@ -365,8 +433,11 @@ details[open] > summary::before { content: "▼  "; }
 .os-panel pre { border-radius: 0 var(--radius) var(--radius) var(--radius); margin-top: 0; }
 
 /* ===== Responsive ===== */
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   .sidebar-layout { grid-template-columns: 1fr; }
-  .sidebar { position: static; }
+  .sidebar { position: static; max-height: none; overflow-y: visible; }
   .hero h1 { font-size: 1.9rem; }
+  /* On mobile, keep all nav groups open */
+  .sidebar .nav-group-items { display: block !important; }
+  .sidebar .nav-group-label .arrow { display: none; }
 }
