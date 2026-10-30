@@ -2,7 +2,7 @@
 
 > A free, open-source Node.js learning platform with chapter materials, code examples, quizzes, and coding exercises.
 
-**Live site:** [https://nodejs-mastery.netlify.app](https://nodejs-mastery.netlify.app)  
+**Live site:** [https://master-nodejs.netlify.app/](https://master-nodejs.netlify.app/)  
 **Author:** [Aditya Pratap Bhuyan](https://linkedin.com/in/adityabhuyan)  
 **License:** GNU General Public License v3.0
 
