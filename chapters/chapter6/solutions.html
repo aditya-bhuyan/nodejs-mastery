@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 6 — Express.js Framework — Solutions | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 6</h3>
+    <ul>
+      <li><a href="learning.html">📖 Learning</a></li>
+      <li><a href="examples.html">💻 Examples</a></li>
+      <li><a href="quiz.html">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html" class="active">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter4/learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter4/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter4/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter4/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter4/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter4/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html">📖 Learning</a></li>
+        <li><a href="./examples.html">💻 Examples</a></li>
+        <li><a href="./quiz.html">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html" class="active">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter7/learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter7/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter7/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter7/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter7/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter7/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter9/learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter9/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter9/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter9/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter9/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter9/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html" class="active">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 6 — Solutions</h1>
+    <p style="color:var(--muted);">Try each exercise first. Reveal only when stuck.</p>
+
+    <div class="solution-block"><h4>Solution 1 — Todo REST API with Express</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// todos-api.js  — install: npm install express
+const express = require("express");
+const app     = express();
+app.use(express.json());
+
+const asyncHandler = fn => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
+
+let todos = [], nextId = 1;
+
+const router = express.Router();
+
+router.get("/", asyncHandler(async (req, res) => {
+  const { done } = req.query;
+  const list = done === undefined ? todos
+    : todos.filter(t => t.done === (done === "true"));
+  res.json(list);
+}));
+
+router.post("/", asyncHandler(async (req, res) => {
+  const { title } = req.body;
+  if (!title) return res.status(400).json({ error: "title required" });
+  const todo = { id: nextId++, title, done: false, createdAt: new Date() };
+  todos.push(todo);
+  res.status(201).json(todo);
+}));
+
+router.put("/:id", asyncHandler(async (req, res) => {
+  const idx = todos.findIndex(t => t.id === +req.params.id);
+  if (idx === -1) return res.status(404).json({ error: "Not found" });
+  todos[idx] = { id: +req.params.id, ...req.body, createdAt: todos[idx].createdAt };
+  res.json(todos[idx]);
+}));
+
+router.patch("/:id", asyncHandler(async (req, res) => {
+  const todo = todos.find(t => t.id === +req.params.id);
+  if (!todo) return res.status(404).json({ error: "Not found" });
+  todo.done = !todo.done;
+  res.json(todo);
+}));
+
+router.delete("/:id", asyncHandler(async (req, res) => {
+  const idx = todos.findIndex(t => t.id === +req.params.id);
+  if (idx === -1) return res.status(404).json({ error: "Not found" });
+  todos.splice(idx, 1);
+  res.status(204).end();
+}));
+
+app.use("/todos", router);
+app.use((err, req, res, _next) =>
+  res.status(err.status || 500).json({ error: err.message || "Server Error" })
+);
+app.listen(3000, "127.0.0.1");</pre>
+    </details>
+
+    <div class="solution-block"><h4>Solution 2 — Rate Limiter Middleware</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// rateLimiter.js
+function rateLimiter(limit, windowMs) {
+  const store = new Map(); // ip → [timestamps]
+  return function (req, res, next) {
+    const ip  = req.socket.remoteAddress;
+    const now = Date.now();
+    const hits = (store.get(ip) || []).filter(t => now - t < windowMs);
+    hits.push(now);
+    store.set(ip, hits);
+    if (hits.length > limit) {
+      return res.status(429).json({ error: "Too Many Requests" });
+    }
+    next();
+  };
+}
+module.exports = rateLimiter;
+
+// Usage in app.js
+const rateLimiter = require("./rateLimiter");
+app.use(rateLimiter(100, 60_000)); // 100 req / minute</pre>
+    </details>
+
+    <div class="solution-block"><h4>Solution 3 — JSON Body Validator</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// validate.js
+function validate(schema) {
+  return function (req, res, next) {
+    for (const [key, expectedType] of Object.entries(schema)) {
+      if (!(key in req.body)) {
+        return res.status(400).json({ error: `Missing required field: ${key}` });
+      }
+      if (typeof req.body[key] !== expectedType) {
+        return res.status(400).json({
+          error: `Field '${key}' must be of type ${expectedType}`
+        });
+      }
+    }
+    next();
+  };
+}
+module.exports = validate;
+
+// Usage
+const validate = require("./validate");
+app.post("/users", validate({ name: "string", age: "number" }), (req, res) => {
+  res.status(201).json(req.body);
+});</pre>
+    </details>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">← Exercises</a>
+      <a href="../chapter7/learning.html" style="font-weight:600;color:var(--accent);">Chapter 7 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

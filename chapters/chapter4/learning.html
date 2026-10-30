@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 4 — File System & Streams — Learning | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 4</h3>
+    <ul>
+      <li><a href="learning.html" class="active">📖 Learning</a></li>
+      <li><a href="examples.html">💻 Examples</a></li>
+      <li><a href="quiz.html">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html" class="active">📖 Learning</a></li>
+        <li><a href="./examples.html">💻 Examples</a></li>
+        <li><a href="./quiz.html">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter6/learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter6/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter6/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter6/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter6/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter6/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter7/learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter7/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter7/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter7/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter7/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter7/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter9/learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter9/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter9/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter9/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter9/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter9/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html" class="active">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 4 — File System &amp; Streams <span class="badge badge-amber">Intermediate</span></h1>
+
+    <h2>4.1 The <code>fs</code> Module</h2>
+    <p>The built-in <code>fs</code> module exposes both synchronous and asynchronous APIs for every file-system operation. Always prefer the <strong>async</strong> forms in production code — they don't block the event loop.</p>
+<pre>const fs = require("fs");
+const fsp = require("fs/promises"); // Promise-based API (Node.js 14+)
+
+// Sync (blocks the event loop — use only at startup)
+const data = fs.readFileSync("./config.json", "utf8");
+
+// Callback-style async
+fs.readFile("./config.json", "utf8", (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+
+// Promise / async-await (preferred)
+const data = await fsp.readFile("./config.json", "utf8");</pre>
+
+    <h2>4.2 Common <code>fs</code> Operations</h2>
+<pre>const fsp = require("fs/promises");
+
+// Write (overwrites) a file
+await fsp.writeFile("./out.txt", "hello
+");
+
+// Append to a file
+await fsp.appendFile("./out.txt", "world
+");
+
+// Copy a file
+await fsp.copyFile("./src.txt", "./dest.txt");
+
+// Delete a file
+await fsp.unlink("./out.txt");
+
+// Create a directory (recursive creates parent dirs too)
+await fsp.mkdir("./logs/2024", { recursive: true });
+
+// List directory contents
+const entries = await fsp.readdir("./src");
+
+// File metadata
+const stat = await fsp.stat("./package.json");
+console.log(stat.size, stat.mtime);</pre>
+
+    <h2>4.3 Watching Files &amp; Directories</h2>
+<pre>const fs = require("fs");
+
+// Watch a file for changes
+fs.watch("./config.json", (eventType, filename) => {
+  console.log(`Event: ${eventType} on ${filename}`);
+});
+
+// Watch a directory recursively
+fs.watch("./src", { recursive: true }, (eventType, filename) => {
+  console.log(`${eventType}: ${filename}`);
+});</pre>
+
+    <h2>4.4 Streams — What and Why</h2>
+    <p>
+      Streams let you process data <strong>piece by piece</strong> without loading it all into memory.
+      Critical when handling large files, HTTP responses, or real-time data.
+    </p>
+    <p>Node.js has four stream types:</p>
+    <ul>
+      <li><strong>Readable</strong> — source of data (<code>fs.createReadStream</code>, HTTP request)</li>
+      <li><strong>Writable</strong> — destination (<code>fs.createWriteStream</code>, HTTP response)</li>
+      <li><strong>Duplex</strong> — both readable and writable (TCP sockets)</li>
+      <li><strong>Transform</strong> — duplex that transforms data as it passes through (compression, encryption)</li>
+    </ul>
+
+    <h2>4.5 Reading &amp; Writing with Streams</h2>
+<pre>const fs = require("fs");
+
+// Readable stream — fires "data" events for each chunk
+const readable = fs.createReadStream("./large.csv", { encoding: "utf8" });
+readable.on("data",  chunk => process.stdout.write(chunk));
+readable.on("end",   ()    => console.log("\nDone reading"));
+readable.on("error", err   => console.error(err.message));
+
+// Writable stream
+const writable = fs.createWriteStream("./output.txt");
+writable.write("Line 1\n");
+writable.write("Line 2\n");
+writable.end();                 // signals no more data</pre>
+
+    <h2>4.6 Piping Streams</h2>
+    <p><code>.pipe()</code> connects a readable to a writable, handling backpressure automatically.</p>
+<pre>const fs   = require("fs");
+const zlib = require("zlib");
+
+// Compress a file: read → gzip transform → write
+fs.createReadStream("./data.csv")
+  .pipe(zlib.createGzip())
+  .pipe(fs.createWriteStream("./data.csv.gz"))
+  .on("finish", () => console.log("Compression complete"));
+
+// Decompress
+fs.createReadStream("./data.csv.gz")
+  .pipe(zlib.createGunzip())
+  .pipe(fs.createWriteStream("./data.csv"));</pre>
+
+    <h2>4.7 The <code>pipeline</code> Utility</h2>
+    <p><code>stream.pipeline()</code> is the modern replacement for <code>.pipe()</code> — it properly handles errors in every stage.</p>
+<pre>const { pipeline } = require("stream/promises");
+const fs   = require("fs");
+const zlib = require("zlib");
+
+async function compress(src, dest) {
+  await pipeline(
+    fs.createReadStream(src),
+    zlib.createGzip(),
+    fs.createWriteStream(dest)
+  );
+  console.log(`Compressed ${src} → ${dest}`);
+}
+
+compress("data.csv", "data.csv.gz");</pre>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="../chapter3/solutions.html" style="font-weight:600;color:var(--accent);">← Chapter 3</a>
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">Code Examples →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

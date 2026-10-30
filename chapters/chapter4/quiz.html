@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 4 — File System & Streams — Quiz | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 4</h3>
+    <ul>
+      <li><a href="learning.html">📖 Learning</a></li>
+      <li><a href="examples.html">💻 Examples</a></li>
+      <li><a href="quiz.html" class="active">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html">📖 Learning</a></li>
+        <li><a href="./examples.html">💻 Examples</a></li>
+        <li><a href="./quiz.html" class="active">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter6/learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter6/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter6/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter6/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter6/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter6/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter7/learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter7/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter7/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter7/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter7/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter7/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter9/learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter9/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter9/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter9/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter9/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter9/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html" class="active">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 4 — Quiz</h1>
+    <p style="color:var(--muted);">Select the best answer, then click Check.</p>
+
+    <div class="quiz-block">
+      <p class="question">Q1. Which <code>fs</code> method reads a file without blocking the event loop and returns a Promise?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q1" value="fs.readFil"> fs.readFileSync()</label>
+        <label><input type="radio" name="q1" value="fs.readFil"> fs.readFile()</label>
+        <label><input type="radio" name="q1" value="fsp.readFi" data-correct="true"> fsp.readFile() from <code>fs/promises</code></label>
+        <label><input type="radio" name="q1" value="fs.createR"> fs.createReadStream()</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q2. What does <code>.pipe()</code> handle automatically that manual stream wiring does not?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q2" value="Encoding c"> Encoding conversion</label>
+        <label><input type="radio" name="q2" value="Backpressu" data-correct="true"> Backpressure</label>
+        <label><input type="radio" name="q2" value="Error prop"> Error propagation across all stages</label>
+        <label><input type="radio" name="q2" value="File locki"> File locking</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q3. Which stream type is <em>both</em> readable and writable?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q3" value="Transform"> Transform</label>
+        <label><input type="radio" name="q3" value="Writable"> Writable</label>
+        <label><input type="radio" name="q3" value="Readable"> Readable</label>
+        <label><input type="radio" name="q3" value="Duplex" data-correct="true"> Duplex</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q4. Why is <code>stream.pipeline()</code> preferred over <code>.pipe()</code>?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q4" value="It is fast"> It is faster</label>
+        <label><input type="radio" name="q4" value="It uses le"> It uses less memory</label>
+        <label><input type="radio" name="q4" value="It properl" data-correct="true"> It properly propagates errors from every stage</label>
+        <label><input type="radio" name="q4" value="It compres"> It compresses data automatically</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q5. What option must you pass to <code>fsp.mkdir()</code> to also create missing parent directories?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q5" value="<code>{ pa"> <code>{ parents: true }</code></label>
+        <label><input type="radio" name="q5" value="<code>{ fo"> <code>{ force: true }</code></label>
+        <label><input type="radio" name="q5" value="<code>{ re" data-correct="true"> <code>{ recursive: true }</code></label>
+        <label><input type="radio" name="q5" value="<code>{ de"> <code>{ deep: true }</code></label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">← Examples</a>
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">Exercises →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

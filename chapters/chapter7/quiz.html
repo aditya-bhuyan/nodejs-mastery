@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 7 — Working with Databases — Quiz | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 7</h3>
+    <ul>
+      <li><a href="learning.html">📖 Learning</a></li>
+      <li><a href="examples.html">💻 Examples</a></li>
+      <li><a href="quiz.html" class="active">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter4/learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter4/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter4/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter4/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter4/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter4/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter6/learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter6/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter6/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter6/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter6/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter6/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html">📖 Learning</a></li>
+        <li><a href="./examples.html">💻 Examples</a></li>
+        <li><a href="./quiz.html" class="active">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter9/learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter9/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter9/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter9/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter9/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter9/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html" class="active">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 7 — Quiz</h1>
+    <p style="color:var(--muted);">Select the best answer, then click Check.</p>
+
+    <div class="quiz-block">
+      <p class="question">Q1. Which SQL clause filters rows in a query?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q1" value="GROUP BY"> GROUP BY</label>
+        <label><input type="radio" name="q1" value="ORDER BY"> ORDER BY</label>
+        <label><input type="radio" name="q1" value="WHERE" data-correct="true"> WHERE</label>
+        <label><input type="radio" name="q1" value="HAVING"> HAVING</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q2. In <code>better-sqlite3</code>, which method runs a parameterised query and returns all rows?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q2" value="db.query()"> db.query().all()</label>
+        <label><input type="radio" name="q2" value="db.prepare" data-correct="true"> db.prepare().all()</label>
+        <label><input type="radio" name="q2" value="db.select("> db.select().fetch()</label>
+        <label><input type="radio" name="q2" value="db.run().r"> db.run().results()</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q3. What does a Mongoose Schema define?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q3" value="The MongoD"> The MongoDB server connection</label>
+        <label><input type="radio" name="q3" value="The struct" data-correct="true"> The structure, types, and validation rules for documents</label>
+        <label><input type="radio" name="q3" value="The databa"> The database name</label>
+        <label><input type="radio" name="q3" value="The replic"> The replication factor</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q4. What is the main benefit of wrapping database calls in a Repository class?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q4" value="Faster que"> Faster queries</label>
+        <label><input type="radio" name="q4" value="Automatic "> Automatic caching</label>
+        <label><input type="radio" name="q4" value="Decouples " data-correct="true"> Decouples business logic from the database driver, making it easy to swap databases</label>
+        <label><input type="radio" name="q4" value="Prevents S"> Prevents SQL injection automatically</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q5. Which <code>better-sqlite3</code> feature ensures multiple statements succeed or all are rolled back?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q5" value="db.batch()"> db.batch()</label>
+        <label><input type="radio" name="q5" value="db.transac" data-correct="true"> db.transaction()</label>
+        <label><input type="radio" name="q5" value="db.atomic("> db.atomic()</label>
+        <label><input type="radio" name="q5" value="db.lock()"> db.lock()</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">← Examples</a>
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">Exercises →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

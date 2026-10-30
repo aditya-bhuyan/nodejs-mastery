@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 6 — Express.js Framework — Examples | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 6</h3>
+    <ul>
+      <li><a href="learning.html">📖 Learning</a></li>
+      <li><a href="examples.html" class="active">💻 Examples</a></li>
+      <li><a href="quiz.html">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter4/learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter4/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter4/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter4/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter4/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter4/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html">📖 Learning</a></li>
+        <li><a href="./examples.html" class="active">💻 Examples</a></li>
+        <li><a href="./quiz.html">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter7/learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter7/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter7/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter7/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter7/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter7/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter9/learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter9/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter9/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter9/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter9/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter9/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html" class="active">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 6 — Code Examples</h1>
+
+    <h2>Example 1 — RESTful Users API with Express Router</h2>
+<pre>// users-api/index.js
+const express = require("express");
+const app     = express();
+app.use(express.json());
+
+// --- in-memory store ---
+let users  = [{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }];
+let nextId = 3;
+
+// --- router ---
+const router = express.Router();
+
+router.get("/",    (_req, res) => res.json(users));
+router.get("/:id", (req, res) => {
+  const user = users.find(u => u.id === +req.params.id);
+  user ? res.json(user) : res.status(404).json({ error: "Not found" });
+});
+router.post("/", (req, res) => {
+  const user = { id: nextId++, ...req.body };
+  users.push(user);
+  res.status(201).json(user);
+});
+router.put("/:id", (req, res) => {
+  const idx = users.findIndex(u => u.id === +req.params.id);
+  if (idx === -1) return res.status(404).json({ error: "Not found" });
+  users[idx] = { id: +req.params.id, ...req.body };
+  res.json(users[idx]);
+});
+router.delete("/:id", (req, res) => {
+  const idx = users.findIndex(u => u.id === +req.params.id);
+  if (idx === -1) return res.status(404).json({ error: "Not found" });
+  users.splice(idx, 1);
+  res.status(204).end();
+});
+
+app.use("/users", router);
+app.listen(3000, "127.0.0.1", () => console.log("http://127.0.0.1:3000"));</pre>
+
+    <h2>Example 2 — Request Logger Middleware</h2>
+<pre>// logger.js  middleware module
+function logger(req, res, next) {
+  const start = Date.now();
+  res.on("finish", () => {
+    console.log(`${req.method} ${req.originalUrl} ${res.statusCode} — ${Date.now()-start}ms`);
+  });
+  next();
+}
+module.exports = logger;
+
+// app.js
+const logger = require("./logger");
+app.use(logger);</pre>
+
+    <h2>Example 3 — Global Async Error Handler</h2>
+<pre>// asyncHandler utility
+const asyncHandler = fn => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
+
+// Route
+app.get("/users/:id", asyncHandler(async (req, res) => {
+  const user = await db.findUser(req.params.id); // may throw
+  if (!user) return res.status(404).json({ error: "Not found" });
+  res.json(user);
+}));
+
+// Error handler — must be registered LAST
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+  res.status(status).json({ error: err.message || "Internal Server Error" });
+});</pre>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="learning.html" style="font-weight:600;color:var(--accent);">← Learning</a>
+      <a href="quiz.html" style="font-weight:600;color:var(--accent);">Quiz →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

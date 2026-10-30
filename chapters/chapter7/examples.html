@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 7 — Working with Databases — Examples | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 7</h3>
+    <ul>
+      <li><a href="learning.html">📖 Learning</a></li>
+      <li><a href="examples.html" class="active">💻 Examples</a></li>
+      <li><a href="quiz.html">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter4/learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter4/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter4/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter4/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter4/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter4/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter6/learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter6/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter6/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter6/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter6/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter6/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html">📖 Learning</a></li>
+        <li><a href="./examples.html" class="active">💻 Examples</a></li>
+        <li><a href="./quiz.html">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter9/learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter9/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter9/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter9/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter9/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter9/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html" class="active">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 7 — Code Examples</h1>
+
+    <h2>Example 1 — SQLite Users CRUD</h2>
+<pre>// sqlite-demo.js — install: npm install better-sqlite3
+const Database = require("better-sqlite3");
+const db = new Database(":memory:"); // in-memory for demo
+
+db.exec(`CREATE TABLE users (
+  id    INTEGER PRIMARY KEY AUTOINCREMENT,
+  name  TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE
+)`);
+
+const stmtInsert = db.prepare("INSERT INTO users (name, email) VALUES (?, ?)");
+const stmtAll    = db.prepare("SELECT * FROM users");
+const stmtOne    = db.prepare("SELECT * FROM users WHERE id = ?");
+const stmtDelete = db.prepare("DELETE FROM users WHERE id = ?");
+
+stmtInsert.run("Alice", "alice@example.com");
+stmtInsert.run("Bob",   "bob@example.com");
+
+console.log("All users:", stmtAll.all());
+console.log("User 1:",    stmtOne.get(1));
+
+stmtDelete.run(2);
+console.log("After delete:", stmtAll.all());</pre>
+
+    <h2>Example 2 — Express + SQLite REST API</h2>
+<pre>// express-sqlite.js
+// Install: npm install express better-sqlite3
+const express  = require("express");
+const Database = require("better-sqlite3");
+
+const db = new Database(":memory:");
+db.exec("CREATE TABLE tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, done INTEGER DEFAULT 0)");
+
+const app = express();
+app.use(express.json());
+
+app.get("/tasks", (_req, res) =>
+  res.json(db.prepare("SELECT * FROM tasks").all())
+);
+app.post("/tasks", (req, res) => {
+  const { title } = req.body;
+  const info = db.prepare("INSERT INTO tasks (title) VALUES (?)").run(title);
+  res.status(201).json({ id: info.lastInsertRowid, title, done: 0 });
+});
+app.patch("/tasks/:id", (req, res) => {
+  const task = db.prepare("SELECT * FROM tasks WHERE id=?").get(+req.params.id);
+  if (!task) return res.status(404).json({ error: "Not found" });
+  db.prepare("UPDATE tasks SET done=? WHERE id=?").run(task.done ? 0 : 1, task.id);
+  res.json(db.prepare("SELECT * FROM tasks WHERE id=?").get(task.id));
+});
+app.delete("/tasks/:id", (req, res) => {
+  db.prepare("DELETE FROM tasks WHERE id=?").run(+req.params.id);
+  res.status(204).end();
+});
+
+app.listen(3000, "127.0.0.1", () => console.log("http://127.0.0.1:3000/tasks"));</pre>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="learning.html" style="font-weight:600;color:var(--accent);">← Learning</a>
+      <a href="quiz.html" style="font-weight:600;color:var(--accent);">Quiz →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

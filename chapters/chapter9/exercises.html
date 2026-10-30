@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 9 — Testing & Debugging — Exercises | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 9</h3>
+    <ul>
+      <li><a href="learning.html">📖 Learning</a></li>
+      <li><a href="examples.html">💻 Examples</a></li>
+      <li><a href="quiz.html">🧠 Quiz</a></li>
+      <li><a href="exercises.html" class="active">🛠 Exercises</a></li>
+      <li><a href="solutions.html">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter4/learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter4/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter4/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter4/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter4/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter4/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter6/learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter6/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter6/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter6/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter6/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter6/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter7/learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter7/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter7/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter7/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter7/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter7/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html">📖 Learning</a></li>
+        <li><a href="./examples.html">💻 Examples</a></li>
+        <li><a href="./quiz.html">🧠 Quiz</a></li>
+        <li><a href="./exercises.html" class="active">🛠 Exercises</a></li>
+        <li><a href="./solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html" class="active">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 9 — Coding Exercises</h1>
+    <p style="color:var(--muted);">Try each exercise before looking at the solutions.</p>
+
+    <div class="exercise-block">
+      <h4>Exercise 1 — Unit Test a String Utility Module</h4>
+      Install Jest and write unit tests for the <code>stringUtils.js</code> module from Chapter 2. Cover:
+      <ul>
+        <li><code>capitalize</code> — at least 3 cases including empty string</li>
+        <li><code>reverseWords</code> — multiple words, single word</li>
+        <li><code>isPalindrome</code> — true and false cases, mixed case</li>
+        <li><code>countWords</code> — extra spaces, empty string</li>
+      </ul>
+      Run with <code>npx jest</code>.
+    </div>
+
+    <div class="exercise-block">
+      <h4>Exercise 2 — Integration Test a REST API</h4>
+      Add Jest + Supertest tests for the todo API from Chapter 6. Cover:
+      <ul>
+        <li><code>GET /todos</code> — returns 200 and array</li>
+        <li><code>POST /todos</code> — creates todo, returns 201 with id</li>
+        <li><code>POST /todos</code> with missing title — returns 400</li>
+        <li><code>PATCH /todos/:id</code> — toggles done</li>
+        <li><code>DELETE /todos/:id</code> — returns 204</li>
+        <li><code>GET /todos/:id</code> for non-existent id — returns 404</li>
+      </ul>
+    </div>
+
+    <div class="exercise-block">
+      <h4>Exercise 3 — Mock an External API Call</h4>
+      Create a function <code>getWeather(city)</code> that calls <code>https://wttr.in/&lt;city&gt;?format=j1</code> using <code>fetch</code>. Write a Jest test that mocks the global <code>fetch</code> and asserts that <code>getWeather("London")</code> correctly parses the temperature from the mocked response.
+    </div>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="quiz.html" style="font-weight:600;color:var(--accent);">← Quiz</a>
+      <a href="solutions.html" style="font-weight:600;color:var(--accent);">Solutions →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

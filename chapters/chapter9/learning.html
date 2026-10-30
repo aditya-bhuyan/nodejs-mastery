@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 9 — Testing & Debugging — Learning | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 9</h3>
+    <ul>
+      <li><a href="learning.html" class="active">📖 Learning</a></li>
+      <li><a href="examples.html">💻 Examples</a></li>
+      <li><a href="quiz.html">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter4/learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter4/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter4/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter4/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter4/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter4/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter6/learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter6/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter6/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter6/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter6/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter6/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter7/learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter7/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter7/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter7/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter7/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter7/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html" class="active">📖 Learning</a></li>
+        <li><a href="./examples.html">💻 Examples</a></li>
+        <li><a href="./quiz.html">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html" class="active">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 9 — Testing &amp; Debugging <span class="badge badge-red">Advanced</span></h1>
+
+    <h2>9.1 Why Test?</h2>
+    <p>Automated tests catch regressions, document expected behaviour, and give you confidence to refactor. Node.js projects typically have three layers of tests:</p>
+    <ul>
+      <li><strong>Unit tests</strong> — test a single function or class in isolation</li>
+      <li><strong>Integration tests</strong> — test how several modules work together (e.g. route + database)</li>
+      <li><strong>End-to-end tests</strong> — test the complete running application through its public API</li>
+    </ul>
+
+    <h2>9.2 Jest — Setup</h2>
+<pre>npm install --save-dev jest</pre>
+    <p>Add to <code>package.json</code>:</p>
+<pre>"scripts": {
+  "test":       "jest",
+  "test:watch": "jest --watch",
+  "test:cover": "jest --coverage"
+}</pre>
+    <p>Jest automatically discovers files matching <code>**/*.test.js</code> or <code>**/*.spec.js</code>.</p>
+
+    <h2>9.3 Writing Unit Tests</h2>
+<pre>// math.js
+function add(a, b) { return a + b; }
+function divide(a, b) {
+  if (b === 0) throw new Error("Division by zero");
+  return a / b;
+}
+module.exports = { add, divide };
+
+// math.test.js
+const { add, divide } = require("./math");
+
+describe("add()", () => {
+  it("adds two positive numbers", () => {
+    expect(add(2, 3)).toBe(5);
+  });
+  it("handles negatives", () => {
+    expect(add(-1, 1)).toBe(0);
+  });
+});
+
+describe("divide()", () => {
+  it("divides correctly", () => {
+    expect(divide(10, 2)).toBe(5);
+  });
+  it("throws on division by zero", () => {
+    expect(() => divide(5, 0)).toThrow("Division by zero");
+  });
+});</pre>
+
+    <h2>9.4 Testing Async Code</h2>
+<pre>// async.test.js
+const { delay } = require("./delay");
+
+test("delay resolves after the specified ms", async () => {
+  const start = Date.now();
+  await delay(100);
+  expect(Date.now() - start).toBeGreaterThanOrEqual(90);
+});
+
+// Testing rejected promises
+test("divide rejects on bad input", async () => {
+  await expect(Promise.reject(new Error("fail"))).rejects.toThrow("fail");
+});</pre>
+
+    <h2>9.5 Mocking with Jest</h2>
+<pre>// userService.test.js
+const UserService = require("./userService");
+const db          = require("./db");
+
+jest.mock("./db"); // auto-mock the module
+
+test("getUser returns user from database", async () => {
+  db.findById.mockResolvedValue({ id: 1, name: "Alice" });
+
+  const user = await UserService.getUser(1);
+  expect(user.name).toBe("Alice");
+  expect(db.findById).toHaveBeenCalledWith(1);
+});</pre>
+
+    <h2>9.6 Integration Testing Express Routes</h2>
+<pre>npm install --save-dev supertest</pre>
+<pre>// app.test.js
+const request = require("supertest");
+const app     = require("./app"); // your Express app (don't call .listen())
+
+describe("GET /users", () => {
+  it("returns 200 and an array", async () => {
+    const res = await request(app).get("/users");
+    expect(res.status).toBe(200);
+    expect(Array.isArray(res.body)).toBe(true);
+  });
+});
+
+describe("POST /users", () => {
+  it("creates a user and returns 201", async () => {
+    const res = await request(app)
+      .post("/users")
+      .send({ name: "Charlie", email: "charlie@example.com" });
+    expect(res.status).toBe(201);
+    expect(res.body).toHaveProperty("id");
+  });
+});</pre>
+
+    <h2>9.7 Debugging</h2>
+    <h3>The <code>--inspect</code> Flag</h3>
+<pre># Start app in debug mode
+node --inspect app.js
+
+# Open Chrome: chrome://inspect → click "Open dedicated DevTools for Node"</pre>
+    <h3>VS Code Debugging</h3>
+    <p>Add a <code>.vscode/launch.json</code>:</p>
+<pre>{
+  "version": "0.2.0",
+  "configurations": [{
+    "type": "node",
+    "request": "launch",
+    "name": "Debug App",
+    "program": "${workspaceFolder}/app.js",
+    "envFile": "${workspaceFolder}/.env"
+  }]
+}</pre>
+    <p>Set breakpoints in the editor, press <kbd>F5</kbd> to start debugging.</p>
+
+    <h2>9.8 The <code>console</code> Debugging Toolkit</h2>
+<pre>console.log("value:", value);             // basic
+console.dir(obj, { depth: null });        // deep-inspect object
+console.time("label"); /* ... */ console.timeEnd("label");  // timing
+console.table(arrayOfObjects);            // tabular output
+console.trace("reached here");           // prints call stack</pre>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="../chapter8/solutions.html" style="font-weight:600;color:var(--accent);">← Chapter 8</a>
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">Code Examples →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

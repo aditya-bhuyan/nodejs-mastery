@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 5 — HTTP Server & REST API — Learning | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 5</h3>
+    <ul>
+      <li><a href="learning.html" class="active">📖 Learning</a></li>
+      <li><a href="examples.html">💻 Examples</a></li>
+      <li><a href="quiz.html">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter4/learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter4/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter4/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter4/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter4/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter4/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html" class="active">📖 Learning</a></li>
+        <li><a href="./examples.html">💻 Examples</a></li>
+        <li><a href="./quiz.html">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter6/learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter6/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter6/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter6/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter6/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter6/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter7/learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter7/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter7/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter7/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter7/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter7/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter9/learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter9/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter9/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter9/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter9/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter9/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html" class="active">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 5 — HTTP Server &amp; REST API <span class="badge badge-amber">Intermediate</span></h1>
+
+    <h2>5.1 The <code>http</code> Module Revisited</h2>
+    <p>Node.js ships with a full HTTP/HTTPS stack. For production APIs you will normally use Express (Chapter 6), but understanding the raw <code>http</code> module helps you debug, write middleware, and understand what frameworks do under the hood.</p>
+<pre>const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "application/json" });
+  res.end(JSON.stringify({ status: "ok" }));
+});
+
+server.listen(3000, "127.0.0.1", () =>
+  console.log("Listening on http://127.0.0.1:3000")
+);</pre>
+
+    <h2>5.2 The <code>req</code> Object</h2>
+    <ul>
+      <li><code>req.method</code> — <code>"GET"</code>, <code>"POST"</code>, <code>"PUT"</code>, <code>"DELETE"</code>, …</li>
+      <li><code>req.url</code> — path + query string, e.g. <code>"/users?page=2"</code></li>
+      <li><code>req.headers</code> — all request headers as a plain object</li>
+      <li><code>req</code> is a Readable stream — read the body by listening to <code>"data"</code> events</li>
+    </ul>
+<pre>function parseBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = "";
+    req.on("data", chunk => (body += chunk));
+    req.on("end",  ()    => {
+      try { resolve(JSON.parse(body)); }
+      catch { resolve({}); }
+    });
+    req.on("error", reject);
+  });
+}</pre>
+
+    <h2>5.3 Routing</h2>
+    <p>Without a framework, routing is done by matching <code>req.method</code> and <code>req.url</code>:</p>
+<pre>const { URL } = require("url");
+
+async function handler(req, res) {
+  const { pathname } = new URL(req.url, "http://localhost");
+
+  if (req.method === "GET" && pathname === "/users") {
+    return sendJSON(res, 200, users);
+  }
+  if (req.method === "POST" && pathname === "/users") {
+    const body = await parseBody(req);
+    const user = { id: Date.now(), ...body };
+    users.push(user);
+    return sendJSON(res, 201, user);
+  }
+  sendJSON(res, 404, { error: "Not found" });
+}
+
+function sendJSON(res, status, data) {
+  res.writeHead(status, { "Content-Type": "application/json" });
+  res.end(JSON.stringify(data));
+}</pre>
+
+    <h2>5.4 REST Conventions</h2>
+    <table style="width:100%;border-collapse:collapse;font-size:0.9rem;margin:0.8rem 0;">
+      <thead><tr style="background:var(--surface);">
+        <th style="padding:0.5rem 0.9rem;border:1px solid var(--border);">Method</th>
+        <th style="padding:0.5rem 0.9rem;border:1px solid var(--border);">Path</th>
+        <th style="padding:0.5rem 0.9rem;border:1px solid var(--border);">Action</th>
+        <th style="padding:0.5rem 0.9rem;border:1px solid var(--border);">Status</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">GET</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">/users</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">List all</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">200</td></tr>
+        <tr style="background:var(--surface);"><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">GET</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">/users/:id</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">Get one</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">200 / 404</td></tr>
+        <tr><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">POST</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">/users</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">Create</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">201</td></tr>
+        <tr style="background:var(--surface);"><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">PUT</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">/users/:id</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">Replace</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">200 / 404</td></tr>
+        <tr><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">PATCH</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">/users/:id</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">Partial update</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">200 / 404</td></tr>
+        <tr style="background:var(--surface);"><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">DELETE</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">/users/:id</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">Delete</td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">204</td></tr>
+      </tbody>
+    </table>
+
+    <h2>5.5 HTTPS</h2>
+    <p>Use the built-in <code>https</code> module for TLS in production. Never serve APIs over plain HTTP.</p>
+<pre>const https = require("https");
+const fs    = require("fs");
+
+const options = {
+  key:  fs.readFileSync("./server.key"),
+  cert: fs.readFileSync("./server.crt"),
+};
+
+https.createServer(options, (req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Secure!");
+}).listen(443, "127.0.0.1");</pre>
+
+    <h2>5.6 Making HTTP Requests (<code>fetch</code>)</h2>
+<pre>// Native fetch — available in Node.js 18+
+const res  = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+const todo = await res.json();
+console.log(todo.title);</pre>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="../chapter4/solutions.html" style="font-weight:600;color:var(--accent);">← Chapter 4</a>
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">Code Examples →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

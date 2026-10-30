@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 8 — Authentication & Security — Quiz | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 8</h3>
+    <ul>
+      <li><a href="learning.html">📖 Learning</a></li>
+      <li><a href="examples.html">💻 Examples</a></li>
+      <li><a href="quiz.html" class="active">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter4/learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter4/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter4/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter4/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter4/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter4/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter6/learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter6/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter6/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter6/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter6/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter6/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter7/learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter7/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter7/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter7/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter7/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter7/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html">📖 Learning</a></li>
+        <li><a href="./examples.html">💻 Examples</a></li>
+        <li><a href="./quiz.html" class="active">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter9/learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter9/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter9/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter9/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter9/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter9/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html" class="active">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 8 — Quiz</h1>
+    <p style="color:var(--muted);">Select the best answer, then click Check.</p>
+
+    <div class="quiz-block">
+      <p class="question">Q1. Why should you never store plaintext passwords?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q1" value="They take "> They take up more storage</label>
+        <label><input type="radio" name="q1" value="If the dat" data-correct="true"> If the database is breached, all user passwords are immediately exposed</label>
+        <label><input type="radio" name="q1" value="They slow "> They slow down authentication</label>
+        <label><input type="radio" name="q1" value="Node.js do"> Node.js doesn't support string storage</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q2. What is the purpose of a JWT <strong>secret</strong>?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q2" value="To encrypt"> To encrypt the payload</label>
+        <label><input type="radio" name="q2" value="To identif"> To identify the issuer</label>
+        <label><input type="radio" name="q2" value="To sign an" data-correct="true"> To sign and verify the token's integrity, ensuring it hasn't been tampered with</label>
+        <label><input type="radio" name="q2" value="To set the"> To set the token expiry</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q3. What does <code>helmet()</code> do in an Express app?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q3" value="Prevents S"> Prevents SQL injection</label>
+        <label><input type="radio" name="q3" value="Sets secur" data-correct="true"> Sets security-related HTTP response headers</label>
+        <label><input type="radio" name="q3" value="Hashes pas"> Hashes passwords</label>
+        <label><input type="radio" name="q3" value="Adds authe"> Adds authentication middleware</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q4. Where should secrets like <code>JWT_SECRET</code> be stored?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q4" value="In <code>c"> In <code>config.js</code></label>
+        <label><input type="radio" name="q4" value="In the sou"> In the source code as a constant</label>
+        <label><input type="radio" name="q4" value="In environ" data-correct="true"> In environment variables, loaded at runtime</label>
+        <label><input type="radio" name="q4" value="In <code>p"> In <code>package.json</code></label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q5. What HTTP status code indicates the client is authenticated but lacks permission?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q5" value="401 Unauth"> 401 Unauthorized</label>
+        <label><input type="radio" name="q5" value="403 Forbid" data-correct="true"> 403 Forbidden</label>
+        <label><input type="radio" name="q5" value="404 Not Fo"> 404 Not Found</label>
+        <label><input type="radio" name="q5" value="400 Bad Re"> 400 Bad Request</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">← Examples</a>
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">Exercises →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

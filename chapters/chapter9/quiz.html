@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 9 — Testing & Debugging — Quiz | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 9</h3>
+    <ul>
+      <li><a href="learning.html">📖 Learning</a></li>
+      <li><a href="examples.html">💻 Examples</a></li>
+      <li><a href="quiz.html" class="active">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter4/learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter4/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter4/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter4/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter4/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter4/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter6/learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter6/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter6/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter6/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter6/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter6/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter7/learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter7/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter7/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter7/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter7/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter7/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html">📖 Learning</a></li>
+        <li><a href="./examples.html">💻 Examples</a></li>
+        <li><a href="./quiz.html" class="active">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html" class="active">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 9 — Quiz</h1>
+    <p style="color:var(--muted);">Select the best answer, then click Check.</p>
+
+    <div class="quiz-block">
+      <p class="question">Q1. Which Jest matcher checks that a function <strong>throws</strong> an error?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q1" value="expect(fn)" data-correct="true"> expect(fn).toThrow()</label>
+        <label><input type="radio" name="q1" value="expect(fn)"> expect(fn).toFail()</label>
+        <label><input type="radio" name="q1" value="expect(fn)"> expect(fn).toError()</label>
+        <label><input type="radio" name="q1" value="expect(fn)"> expect(fn).throws()</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q2. What does <code>jest.mock('./db')</code> do?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q2" value="Deletes th"> Deletes the db module</label>
+        <label><input type="radio" name="q2" value="Replaces a" data-correct="true"> Replaces all exports of <code>./db</code> with auto-mocked jest functions</label>
+        <label><input type="radio" name="q2" value="Creates a "> Creates a test database</label>
+        <label><input type="radio" name="q2" value="Clears the"> Clears the database</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q3. Which npm package lets you make HTTP assertions against an Express app without starting a real server?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q3" value="axios"> axios</label>
+        <label><input type="radio" name="q3" value="supertest" data-correct="true"> supertest</label>
+        <label><input type="radio" name="q3" value="nock"> nock</label>
+        <label><input type="radio" name="q3" value="sinon"> sinon</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q4. What flag starts Node.js in debug mode?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q4" value="--debug"> --debug</label>
+        <label><input type="radio" name="q4" value="--inspect" data-correct="true"> --inspect</label>
+        <label><input type="radio" name="q4" value="--breakpoi"> --breakpoint</label>
+        <label><input type="radio" name="q4" value="--devtools"> --devtools</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q5. What is the difference between a unit test and an integration test?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q5" value="Unit tests"> Unit tests are slower</label>
+        <label><input type="radio" name="q5" value="Unit tests" data-correct="true"> Unit tests test a single function in isolation; integration tests test multiple modules working together</label>
+        <label><input type="radio" name="q5" value="Integratio"> Integration tests don't use assertions</label>
+        <label><input type="radio" name="q5" value="There is n"> There is no difference</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">← Examples</a>
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">Exercises →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 9 — Testing & Debugging — Solutions | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+
+    <!-- Current chapter pages -->
+    <h3>Chapter 9</h3>
+    <ul>
+      <li><a href="learning.html">📖 Learning</a></li>
+      <li><a href="examples.html">💻 Examples</a></li>
+      <li><a href="quiz.html">🧠 Quiz</a></li>
+      <li><a href="exercises.html">🛠 Exercises</a></li>
+      <li><a href="solutions.html" class="active">✅ Solutions</a></li>
+    </ul>
+
+    <hr/>
+
+    <!-- Full course navigation -->
+    <h3>All Chapters</h3>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../../intro/index.html">Intro</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../../intro/index.html">What is Node.js?</a></li>
+        <li><a href="../../intro/index.html#install">Installation</a></li>
+        <li><a href="../../intro/index.html#run-js">Running .js Files</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter1/learning.html">Chapter 1</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter1/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter1/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter1/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter1/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter1/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter2/learning.html">Chapter 2</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter2/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter2/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter2/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter2/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter2/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter3/learning.html">Chapter 3</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter3/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter3/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter3/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter3/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter3/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter4/learning.html">Chapter 4</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter4/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter4/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter4/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter4/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter4/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter5/learning.html">Chapter 5</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter5/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter5/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter5/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter5/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter5/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter6/learning.html">Chapter 6</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter6/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter6/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter6/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter6/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter6/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter7/learning.html">Chapter 7</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter7/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter7/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter7/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter7/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter7/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">
+        <a href="../chapter8/learning.html">Chapter 8</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="../chapter8/learning.html">📖 Learning</a></li>
+        <li><a href="../chapter8/examples.html">💻 Examples</a></li>
+        <li><a href="../chapter8/quiz.html">🧠 Quiz</a></li>
+        <li><a href="../chapter8/exercises.html">🛠 Exercises</a></li>
+        <li><a href="../chapter8/solutions.html">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-group open">
+      <div class="nav-group-label">
+        <a href="./learning.html">Chapter 9</a>
+        <span class="arrow">▶</span>
+      </div>
+      <ul class="nav-group-items">
+        <li><a href="./learning.html">📖 Learning</a></li>
+        <li><a href="./examples.html">💻 Examples</a></li>
+        <li><a href="./quiz.html">🧠 Quiz</a></li>
+        <li><a href="./exercises.html">🛠 Exercises</a></li>
+        <li><a href="./solutions.html" class="active">✅ Solutions</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html" class="active">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 9 — Solutions</h1>
+    <p style="color:var(--muted);">Try each exercise first. Reveal only when stuck.</p>
+
+    <div class="solution-block"><h4>Solution 1 — Unit Test a String Utility Module</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// stringUtils.test.js
+const { capitalize, reverseWords, isPalindrome, countWords } = require("./stringUtils");
+
+describe("capitalize()", () => {
+  it("capitalises first letter",    () => expect(capitalize("hello")).toBe("Hello"));
+  it("handles all-caps",            () => expect(capitalize("WORLD")).toBe("WORLD"));
+  it("handles empty string",        () => expect(capitalize("")).toBe(""));
+});
+
+describe("reverseWords()", () => {
+  it("reverses multiple words",     () => expect(reverseWords("foo bar baz")).toBe("baz bar foo"));
+  it("single word unchanged",       () => expect(reverseWords("hello")).toBe("hello"));
+});
+
+describe("isPalindrome()", () => {
+  it("detects palindrome",          () => expect(isPalindrome("racecar")).toBe(true));
+  it("case-insensitive",            () => expect(isPalindrome("RaceCar")).toBe(true));
+  it("non-palindrome",              () => expect(isPalindrome("hello")).toBe(false));
+  it("multi-word palindrome",       () => expect(isPalindrome("A man a plan a canal Panama")).toBe(true));
+});
+
+describe("countWords()", () => {
+  it("counts words correctly",      () => expect(countWords("hello world")).toBe(2));
+  it("handles extra spaces",        () => expect(countWords("  foo   bar  ")).toBe(2));
+  it("single word",                 () => expect(countWords("node")).toBe(1));
+});</pre>
+    </details>
+
+    <div class="solution-block"><h4>Solution 2 — Integration Test a REST API</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// todos.test.js — npm install --save-dev jest supertest
+const request = require("supertest");
+const app     = require("./app"); // export app without .listen()
+
+describe("Todos API", () => {
+  let createdId;
+
+  test("GET /todos → 200 array", async () => {
+    const res = await request(app).get("/todos");
+    expect(res.status).toBe(200);
+    expect(Array.isArray(res.body)).toBe(true);
+  });
+
+  test("POST /todos → 201 with id", async () => {
+    const res = await request(app).post("/todos").send({ title: "Test todo" });
+    expect(res.status).toBe(201);
+    expect(res.body).toHaveProperty("id");
+    createdId = res.body.id;
+  });
+
+  test("POST /todos missing title → 400", async () => {
+    const res = await request(app).post("/todos").send({});
+    expect(res.status).toBe(400);
+  });
+
+  test("PATCH /todos/:id toggles done", async () => {
+    const res = await request(app).patch(`/todos/${createdId}`);
+    expect(res.status).toBe(200);
+    expect(res.body.done).toBe(true);
+  });
+
+  test("DELETE /todos/:id → 204", async () => {
+    const res = await request(app).delete(`/todos/${createdId}`);
+    expect(res.status).toBe(204);
+  });
+
+  test("GET /todos/:id not found → 404", async () => {
+    const res = await request(app).get("/todos/99999");
+    expect(res.status).toBe(404);
+  });
+});</pre>
+    </details>
+
+    <div class="solution-block"><h4>Solution 3 — Mock an External API Call</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// weather.js
+async function getWeather(city) {
+  const res  = await fetch(`https://wttr.in/${encodeURIComponent(city)}?format=j1`);
+  const data = await res.json();
+  return data.current_condition[0].temp_C;
+}
+module.exports = { getWeather };
+
+// weather.test.js
+const { getWeather } = require("./weather");
+
+beforeEach(() => {
+  global.fetch = jest.fn().mockResolvedValue({
+    ok: true,
+    json: async () => ({
+      current_condition: [{ temp_C: "15" }]
+    })
+  });
+});
+
+afterEach(() => jest.restoreAllMocks());
+
+test("getWeather returns temperature for London", async () => {
+  const temp = await getWeather("London");
+  expect(temp).toBe("15");
+  expect(global.fetch).toHaveBeenCalledWith(
+    "https://wttr.in/London?format=j1"
+  );
+});</pre>
+    </details>
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">← Exercises</a>
+      <a href="../../index.html" style="font-weight:600;color:var(--accent);">← Home</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
