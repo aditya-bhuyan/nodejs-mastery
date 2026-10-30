@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro — Installing Node.js | Node.js Mastery</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="index.html" class="active">Intro</a>
+    <a href="../chapters/chapter1/learning.html">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h3>Introduction</h3>
+    <ul>
+      <li><a href="#what-is-nodejs">What is Node.js?</a></li>
+      <li><a href="#install">Installing Node.js</a></li>
+      <li><a href="#verify">Verify Installation</a></li>
+      <li><a href="#run-js">Running a .js File</a></li>
+      <li><a href="#repl">Using the REPL</a></li>
+      <li><a href="#first-script">Your First Script</a></li>
+    </ul>
+    <br/>
+    <h3>Navigation</h3>
+    <ul>
+      <li><a href="../index.html">← Home</a></li>
+      <li><a href="../chapters/chapter1/learning.html">Chapter 1 →</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content">
+    <h1>Introduction to Node.js</h1>
+    <p style="color:var(--muted);margin-bottom:1.5rem;">Before writing any Node.js code you need to install the runtime and understand how to run JavaScript outside the browser.</p>
+
+    <!-- ── What is Node.js ── -->
+    <h2 id="what-is-nodejs">What is Node.js?</h2>
+    <p>
+      <strong>Node.js</strong> is an open-source, cross-platform <em>JavaScript runtime</em> built on Google Chrome's
+      <a href="https://v8.dev" target="_blank" rel="noopener">V8 engine</a>.
+      It lets you execute JavaScript on the server — outside a browser — and is particularly suited for:
+    </p>
+    <ul>
+      <li>Building web servers and REST APIs</li>
+      <li>Real-time applications (chat, gaming, live dashboards)</li>
+      <li>Command-line tools and automation scripts</li>
+      <li>Streaming data pipelines</li>
+    </ul>
+    <p>
+      Node.js uses a <strong>single-threaded, event-driven, non-blocking I/O</strong> model.
+      This allows it to handle thousands of concurrent connections efficiently without the overhead
+      of spawning a new OS thread per request.
+    </p>
+
+    <!-- ── Installing ── -->
+    <h2 id="install">Installing Node.js</h2>
+    <p>
+      Always install the <strong>LTS (Long Term Support)</strong> version — it is the most stable
+      and receives security patches for 30 months.
+      Download it from <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a>.
+    </p>
+
+    <div class="os-tabs">
+      <button class="os-tab active"  data-group="install" onclick="switchOs(event,'install-win','install')">Windows</button>
+      <button class="os-tab"         data-group="install" onclick="switchOs(event,'install-mac','install')">macOS</button>
+      <button class="os-tab"         data-group="install" onclick="switchOs(event,'install-linux','install')">Linux (Debian/Ubuntu)</button>
+      <button class="os-tab"         data-group="install" onclick="switchOs(event,'install-nvm','install')">nvm (all OS)</button>
+    </div>
+
+    <div id="install-win" class="os-panel active" data-group="install">
+<pre><code class="comment"># Option 1 – Download the Windows Installer (.msi) from https://nodejs.org
+# Option 2 – Install via winget (Windows 10/11)
+winget install OpenJS.NodeJS.LTS
+
+# Option 3 – Install via Chocolatey
+choco install nodejs-lts</code></pre>
+      <p>After installation, open <strong>PowerShell</strong> or <strong>Command Prompt</strong> and verify (see below).</p>
+    </div>
+
+    <div id="install-mac" class="os-panel" data-group="install">
+<pre><code class="comment"># Option 1 – Download the macOS pkg from https://nodejs.org
+# Option 2 – Homebrew (recommended)
+brew install node
+
+# Option 3 – MacPorts
+sudo port install nodejs22 +lts</code></pre>
+      <p>After installation, open <strong>Terminal</strong> and verify (see below).</p>
+    </div>
+
+    <div id="install-linux" class="os-panel" data-group="install">
+<pre><code class="comment"># Official NodeSource repository (recommended for Debian/Ubuntu)</code>
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+<code class="comment"># Fedora / RHEL / CentOS</code>
+sudo dnf module install nodejs:lts/default
+
+<code class="comment"># Arch Linux</code>
+sudo pacman -S nodejs npm</pre>
+    </div>
+
+    <div id="install-nvm" class="os-panel" data-group="install">
+      <p><strong>nvm</strong> (Node Version Manager) lets you switch between multiple Node.js versions on the same machine — ideal for developers.</p>
+<pre><code class="comment"># macOS / Linux — install nvm</code>
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc  <code class="comment"># or ~/.zshrc on macOS</code>
+
+<code class="comment"># Install and use the LTS version</code>
+nvm install --lts
+nvm use --lts
+nvm alias default node  <code class="comment"># make it the default</code>
+
+<code class="comment"># Windows — use nvm-windows</code>
+<code class="comment"># Download installer from https://github.com/coreybutler/nvm-windows/releases</code>
+nvm install lts
+nvm use lts</pre>
+    </div>
+
+    <!-- ── Verify ── -->
+    <h2 id="verify">Verify the Installation</h2>
+    <p>After installation, open a terminal (PowerShell / Command Prompt / Terminal / bash) and run:</p>
+<pre>node --version
+npm --version</pre>
+    <p>You should see output similar to:</p>
+<pre>v22.11.0
+10.9.0</pre>
+    <p>If the <code>node</code> command is not found, restart your terminal or machine so the PATH changes take effect.</p>
+
+    <!-- ── Running a .js file ── -->
+    <h2 id="run-js">Running a <code>.js</code> File</h2>
+    <p>Node.js executes JavaScript files directly from the terminal. No compilation step is required — unlike C or Java.</p>
+
+    <div class="os-tabs">
+      <button class="os-tab active" data-group="run" onclick="switchOs(event,'run-win','run')">Windows</button>
+      <button class="os-tab"        data-group="run" onclick="switchOs(event,'run-unix','run')">macOS / Linux</button>
+    </div>
+
+    <div id="run-win" class="os-panel active" data-group="run">
+<pre><code class="comment"># Navigate to the folder containing your file</code>
+cd C:\Users\YourName\projects\hello
+
+<code class="comment"># Run the file</code>
+node hello.js</pre>
+    </div>
+
+    <div id="run-unix" class="os-panel" data-group="run">
+<pre><code class="comment"># Navigate to the folder containing your file</code>
+cd ~/projects/hello
+
+<code class="comment"># Run the file</code>
+node hello.js
+
+<code class="comment"># Alternatively, make it executable (Linux/macOS)</code>
+chmod +x hello.js
+./hello.js  <code class="comment"># requires #!/usr/bin/env node as first line</code></pre>
+    </div>
+
+    <p><strong>Key point:</strong> <code>node &lt;filename&gt;</code> works identically on all operating systems. There is no compile step.</p>
+
+    <!-- ── REPL ── -->
+    <h2 id="repl">Using the Node.js REPL</h2>
+    <p>The <strong>REPL</strong> (Read-Eval-Print Loop) is an interactive shell. Start it by typing <code>node</code> with no arguments:</p>
+<pre>$ node
+Welcome to Node.js v22.11.0.
+Type ".help" for more information.
+&gt; 2 + 2
+4
+&gt; console.log("Hello, Node!")
+Hello, Node!
+undefined
+&gt; .exit</pre>
+    <p>The REPL is perfect for quick experiments. Press <kbd>Ctrl+C</kbd> twice or type <code>.exit</code> to quit.</p>
+
+    <!-- ── First script ── -->
+    <h2 id="first-script">Your First Node.js Script</h2>
+    <p>Create a file called <code>hello.js</code> with the following content:</p>
+<pre>// hello.js
+const message = "Hello from Node.js!";
+console.log(message);
+
+const os = require("os");
+console.log(`Running on: ${os.platform()} (${os.arch()})`);
+console.log(`Node.js version: ${process.version}`);</pre>
+    <p>Run it:</p>
+<pre>node hello.js</pre>
+    <p>Expected output (varies by machine):</p>
+<pre>Hello from Node.js!
+Running on: darwin (arm64)
+Node.js version: v22.11.0</pre>
+    <p>That's it — you have a working Node.js environment. Move on to <a href="../chapters/chapter1/learning.html">Chapter 1</a> to dive deeper.</p>
+
+    <!-- Next -->
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:flex-end;">
+      <a href="../chapters/chapter1/learning.html" style="font-weight:600;color:var(--accent);">Chapter 1: Foundations of Node.js →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../LICENSE">License</a></span>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

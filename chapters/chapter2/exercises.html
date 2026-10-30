@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 2 — Exercises | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 2</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html" class="active">Exercises</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html" class="active">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 2 — Coding Exercises</h1>
+
+    <div class="exercise-block">
+      <h4>Exercise 1 — String Utilities Module</h4>
+      <p>Create a file <code>stringUtils.js</code> that exports the following functions:</p>
+      <ul>
+        <li><code>capitalize(str)</code> — capitalizes the first letter</li>
+        <li><code>reverseWords(str)</code> — reverses the word order in a sentence</li>
+        <li><code>countWords(str)</code> — returns the number of words</li>
+        <li><code>isPalindrome(str)</code> — returns <code>true</code> if the string reads the same forwards and backwards (ignore case, spaces)</li>
+      </ul>
+      <p>Then create <code>testStrings.js</code> that <code>require</code>s the module and tests each function with at least two inputs.</p>
+    </div>
+
+    <div class="exercise-block">
+      <h4>Exercise 2 — File Info Tool</h4>
+      <p>
+        Create <code>fileinfo.js</code> that accepts a file path as a command-line argument and prints:
+      </p>
+      <ul>
+        <li>File name (without directory)</li>
+        <li>File extension</li>
+        <li>Parent directory (absolute)</li>
+        <li>Whether the file exists (use <code>fs.existsSync</code>)</li>
+      </ul>
+      <p>Use the <code>path</code> and <code>fs</code> built-in modules.</p>
+<pre>node fileinfo.js ./package.json</pre>
+    </div>
+
+    <div class="exercise-block">
+      <h4>Exercise 3 — Simple Calculator Module</h4>
+      <p>
+        Create <code>calc.js</code> that exports an object with four methods: <code>add</code>, <code>subtract</code>, <code>multiply</code>, <code>divide</code>.
+        <code>divide</code> should throw an <code>Error</code> with the message <code>"Division by zero"</code> if the divisor is <code>0</code>.
+      </p>
+      <p>
+        Create <code>runCalc.js</code> that imports the calculator, calls all four operations with example values, wraps <code>divide</code> in a try/catch, and logs every result.
+      </p>
+    </div>
+
+    <div class="exercise-block">
+      <h4>Exercise 4 — System Report Script</h4>
+      <p>
+        Create <code>sysreport.js</code> that uses the <code>os</code> module to print a formatted system report like:
+      </p>
+<pre>=== System Report ===
+Hostname  : macbook-pro.local
+Platform  : darwin
+Arch      : arm64
+CPUs      : 10
+Total RAM : 16.00 GB
+Free RAM  : 4.32 GB
+Uptime    : 3h 22m</pre>
+      <p>Format uptime as hours and minutes (use <code>os.uptime()</code> which returns seconds).</p>
+    </div>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="quiz.html" style="font-weight:600;color:var(--accent);">← Quiz</a>
+      <a href="solutions.html" style="font-weight:600;color:var(--accent);">Solutions →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

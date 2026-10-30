@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 1 — Exercises | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 1</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html" class="active">Exercises</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html" class="active">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 1 — Coding Exercises</h1>
+    <p style="color:var(--muted);">Complete each exercise in a new <code>.js</code> file and run it with <code>node &lt;filename&gt;.js</code>. Solutions are in the next tab.</p>
+
+    <!-- Exercise 1 -->
+    <div class="exercise-block">
+      <h4>Exercise 1 — System Info Reporter</h4>
+      <p>
+        Create a file <code>sysinfo.js</code> that prints the following information to the console,
+        each on its own labeled line:
+      </p>
+      <ul>
+        <li>Node.js version</li>
+        <li>Operating system platform</li>
+        <li>CPU architecture</li>
+        <li>Current working directory</li>
+        <li>The absolute path of the script itself</li>
+      </ul>
+      <p><strong>Hint:</strong> All of these are available on the <code>process</code> object or as globals.</p>
+    </div>
+
+    <!-- Exercise 2 -->
+    <div class="exercise-block">
+      <h4>Exercise 2 — Greeting with Command-Line Arguments</h4>
+      <p>
+        Create <code>greet.js</code>. When run as <code>node greet.js Alice 30</code>,
+        it should print:
+      </p>
+<pre>Hello, Alice! You are 30 years old.
+In 5 years you will be 35.</pre>
+      <p>
+        If fewer than 2 arguments are provided, print a usage message and exit with code 1:
+      </p>
+<pre>Usage: node greet.js &lt;name&gt; &lt;age&gt;</pre>
+      <p><strong>Hint:</strong> Use <code>process.argv.slice(2)</code> and <code>process.exit(1)</code>.</p>
+    </div>
+
+    <!-- Exercise 3 -->
+    <div class="exercise-block">
+      <h4>Exercise 3 — Countdown Timer</h4>
+      <p>
+        Create <code>countdown.js</code>. It should:
+      </p>
+      <ol>
+        <li>Accept a number <code>N</code> as a command-line argument (default 5 if not provided).</li>
+        <li>Print the countdown from <code>N</code> down to <code>1</code>, one number per second.</li>
+        <li>After the countdown completes, print <strong>"Go!"</strong>.</li>
+      </ol>
+      <p>Example output for <code>node countdown.js 3</code>:</p>
+<pre>3
+2
+1
+Go!</pre>
+      <p><strong>Hint:</strong> Use <code>setInterval</code> and <code>clearInterval</code>.</p>
+    </div>
+
+    <!-- Exercise 4 -->
+    <div class="exercise-block">
+      <h4>Exercise 4 — Minimal HTTP Server</h4>
+      <p>
+        Create <code>server.js</code> using the built-in <code>http</code> module that:
+      </p>
+      <ol>
+        <li>Listens on <code>127.0.0.1:3000</code> (or <code>PORT</code> env var if set).</li>
+        <li>Responds to <strong>any</strong> GET request with HTTP 200 and the body: <code>Node.js is running!</code></li>
+        <li>Responds to any other method with HTTP 405 and the body: <code>Method Not Allowed</code></li>
+        <li>Logs each request: method and URL.</li>
+      </ol>
+    </div>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="quiz.html" style="font-weight:600;color:var(--accent);">← Quiz</a>
+      <a href="solutions.html" style="font-weight:600;color:var(--accent);">Solutions →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

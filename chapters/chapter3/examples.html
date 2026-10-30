@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 3 — Examples | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 3</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html" class="active">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html" class="active">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 3 — Code Examples</h1>
+
+    <h2>Example 1 — Callback vs Promise vs Async/Await</h2>
+    <p>Three equivalent ways to read a file asynchronously:</p>
+<pre>// read-callback.js
+const fs = require("fs");
+fs.readFile("./hello.js", "utf8", (err, data) => {
+  if (err) return console.error(err.message);
+  console.log("Callback — first 40 chars:", data.slice(0, 40));
+});</pre>
+
+<pre>// read-promise.js
+const fs = require("fs").promises;
+fs.readFile("./hello.js", "utf8")
+  .then(data => console.log("Promise — first 40 chars:", data.slice(0, 40)))
+  .catch(err => console.error(err.message));</pre>
+
+<pre>// read-async.js
+const fs = require("fs/promises");
+
+async function readDemo() {
+  try {
+    const data = await fs.readFile("./hello.js", "utf8");
+    console.log("Async/Await — first 40 chars:", data.slice(0, 40));
+  } catch (err) {
+    console.error(err.message);
+  }
+}
+readDemo();</pre>
+
+    <h2>Example 2 — Creating Your Own Promise</h2>
+<pre>// delay.js
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function run() {
+  console.log("Start");
+  await delay(1000);
+  console.log("After 1 second");
+  await delay(500);
+  console.log("After another 0.5 seconds");
+}
+
+run();</pre>
+
+    <h2>Example 3 — Promise.all for Parallel Operations</h2>
+<pre>// parallel.js
+const fs = require("fs/promises");
+
+async function readMultiple() {
+  // These two reads happen in parallel, not sequentially
+  const [pkg, readme] = await Promise.all([
+    fs.readFile("./package.json", "utf8").catch(() => "not found"),
+    fs.readFile("./README.md",    "utf8").catch(() => "not found"),
+  ]);
+
+  console.log("package.json length:", pkg.length);
+  console.log("README.md length   :", readme.length);
+}
+
+readMultiple();</pre>
+
+    <h2>Example 4 — Async Error Handling</h2>
+<pre>// async-errors.js
+async function fetchData(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+  return res.json();
+}
+
+async function main() {
+  try {
+    const data = await fetchData("https://jsonplaceholder.typicode.com/todos/1");
+    console.log("Got:", data);
+  } catch (err) {
+    console.error("Request failed:", err.message);
+  }
+}
+
+main();</pre>
+    <p><strong>Note:</strong> <code>fetch</code> is available natively in Node.js 18+.</p>
+
+    <h2>Example 5 — EventEmitter</h2>
+<pre>// events-demo.js
+const EventEmitter = require("events");
+
+class DataPipeline extends EventEmitter {}
+
+const pipeline = new DataPipeline();
+
+// Register listeners
+pipeline.on("data",  chunk  => console.log("Received chunk:", chunk));
+pipeline.on("end",   ()     => console.log("Pipeline finished."));
+pipeline.on("error", err    => console.error("Pipeline error:", err.message));
+
+// Emit events
+pipeline.emit("data", { id: 1, value: 42 });
+pipeline.emit("data", { id: 2, value: 99 });
+pipeline.emit("end");</pre>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="learning.html" style="font-weight:600;color:var(--accent);">← Learning</a>
+      <a href="quiz.html" style="font-weight:600;color:var(--accent);">Quiz →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

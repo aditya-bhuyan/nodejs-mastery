@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 1 — Solutions | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 1</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="solutions.html" class="active">Solutions</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html" class="active">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 1 — Solutions</h1>
+    <p style="color:var(--muted);">Try each exercise yourself first. Reveal the solution only when you are stuck or want to compare approaches.</p>
+
+    <!-- Solution 1 -->
+    <div class="solution-block">
+      <h4>Solution 1 — System Info Reporter</h4>
+    </div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// sysinfo.js
+console.log("Node.js version  :", process.version);
+console.log("Platform         :", process.platform);
+console.log("Architecture     :", process.arch);
+console.log("Working directory:", process.cwd());
+console.log("Script path      :", __filename);</pre>
+      <p><strong>Key points:</strong></p>
+      <ul>
+        <li><code>process.version</code> returns the Node.js version string (e.g. <code>v22.11.0</code>).</li>
+        <li><code>process.platform</code> returns <code>"linux"</code>, <code>"darwin"</code>, or <code>"win32"</code>.</li>
+        <li><code>__filename</code> is a global available in every CommonJS module.</li>
+      </ul>
+    </details>
+
+    <!-- Solution 2 -->
+    <div class="solution-block">
+      <h4>Solution 2 — Greeting with Command-Line Arguments</h4>
+    </div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// greet.js
+const args = process.argv.slice(2);
+
+if (args.length < 2) {
+  console.error("Usage: node greet.js <name> <age>");
+  process.exit(1);
+}
+
+const name = args[0];
+const age  = parseInt(args[1], 10);
+
+if (isNaN(age)) {
+  console.error("Error: age must be a number.");
+  process.exit(1);
+}
+
+console.log(`Hello, ${name}! You are ${age} years old.`);
+console.log(`In 5 years you will be ${age + 5}.`);</pre>
+      <p><strong>Key points:</strong></p>
+      <ul>
+        <li><code>process.argv.slice(2)</code> strips the first two entries (node path and script path).</li>
+        <li><code>parseInt(value, 10)</code> — always supply the radix to avoid octal parsing bugs.</li>
+        <li><code>process.exit(1)</code> signals failure to the shell (non-zero exit code).</li>
+      </ul>
+    </details>
+
+    <!-- Solution 3 -->
+    <div class="solution-block">
+      <h4>Solution 3 — Countdown Timer</h4>
+    </div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// countdown.js
+const n = parseInt(process.argv[2], 10) || 5;
+let current = n;
+
+const id = setInterval(() => {
+  console.log(current);
+  current--;
+  if (current === 0) {
+    clearInterval(id);
+    console.log("Go!");
+  }
+}, 1000);</pre>
+      <p><strong>Key points:</strong></p>
+      <ul>
+        <li><code>setInterval</code> fires the callback every 1000 ms.</li>
+        <li><code>clearInterval(id)</code> stops the timer once the countdown reaches zero.</li>
+        <li>The <code>|| 5</code> default only kicks in if no argument or an invalid argument is given (<code>parseInt</code> returns <code>NaN</code> which is falsy).</li>
+      </ul>
+    </details>
+
+    <!-- Solution 4 -->
+    <div class="solution-block">
+      <h4>Solution 4 — Minimal HTTP Server</h4>
+    </div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// server.js
+const http = require("http");
+
+const PORT = process.env.PORT || 3000;
+
+const server = http.createServer((req, res) => {
+  console.log(`${req.method} ${req.url}`);
+
+  if (req.method === "GET") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Node.js is running!\n");
+  } else {
+    res.writeHead(405, { "Content-Type": "text/plain" });
+    res.end("Method Not Allowed\n");
+  }
+});
+
+server.listen(PORT, "127.0.0.1", () => {
+  console.log(`Listening on http://127.0.0.1:${PORT}`);
+});</pre>
+      <p><strong>Key points:</strong></p>
+      <ul>
+        <li>Always bind to <code>127.0.0.1</code> (localhost) for local development — never <code>0.0.0.0</code>.</li>
+        <li><code>req.method</code> is always uppercase (<code>"GET"</code>, <code>"POST"</code>, etc.).</li>
+        <li>HTTP 405 is the correct status code for an unsupported HTTP method.</li>
+      </ul>
+    </details>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">← Exercises</a>
+      <a href="../chapter2/learning.html" style="font-weight:600;color:var(--accent);">Chapter 2 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

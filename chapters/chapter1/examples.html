@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 1 — Examples | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 1</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html" class="active">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+    <br/>
+    <h3>Chapters</h3>
+    <ul>
+      <li><a href="../../intro/index.html">← Intro</a></li>
+      <li><a href="../chapter2/learning.html">Chapter 2 →</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html" class="active">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 1 — Code Examples</h1>
+
+    <!-- Example 1 -->
+    <h2>Example 1 — Hello World</h2>
+    <p>The simplest possible Node.js script. Save as <code>01-hello.js</code> and run with <code>node 01-hello.js</code>.</p>
+<pre>// 01-hello.js
+console.log("Hello, World!");</pre>
+    <p><strong>Output:</strong></p>
+<pre>Hello, World!</pre>
+
+    <!-- Example 2 -->
+    <h2>Example 2 — Using the <code>process</code> Object</h2>
+    <p>Inspecting the current Node.js process and passing command-line arguments.</p>
+<pre>// 02-process.js
+console.log("Node version :", process.version);
+console.log("Platform     :", process.platform);
+console.log("Architecture :", process.arch);
+console.log("Working dir  :", process.cwd());
+console.log("Script path  :", __filename);
+console.log("Script dir   :", __dirname);
+
+// Access command-line arguments
+// Run: node 02-process.js Alice 42
+const args = process.argv.slice(2); // skip "node" and script name
+console.log("Arguments    :", args);
+
+if (args.length) {
+  console.log(`Hello, ${args[0]}! You passed ${args.length} argument(s).`);
+}</pre>
+
+    <p><strong>Run:</strong></p>
+<pre>node 02-process.js Alice 42</pre>
+    <p><strong>Output:</strong></p>
+<pre>Node version : v22.11.0
+Platform     : darwin
+Architecture : arm64
+Working dir  : /home/user/projects
+Script path  : /home/user/projects/02-process.js
+Script dir   : /home/user/projects
+Arguments    : [ 'Alice', '42' ]
+Hello, Alice! You passed 2 argument(s).</pre>
+
+    <!-- Example 3 -->
+    <h2>Example 3 — Reading Environment Variables</h2>
+    <p>Access environment variables via <code>process.env</code>. Never hard-code secrets in source code — use env vars instead.</p>
+<pre>// 03-env.js
+const port = process.env.PORT || 3000;
+const env  = process.env.NODE_ENV || "development";
+
+console.log(`Server will listen on port ${port} in ${env} mode.`);</pre>
+
+    <p><strong>Run (setting env vars inline):</strong></p>
+<pre># macOS / Linux
+PORT=8080 NODE_ENV=production node 03-env.js
+
+# Windows PowerShell
+$env:PORT="8080"; $env:NODE_ENV="production"; node 03-env.js</pre>
+    <p><strong>Output:</strong></p>
+<pre>Server will listen on port 8080 in production mode.</pre>
+
+    <!-- Example 4 -->
+    <h2>Example 4 — Timers</h2>
+    <p>Node.js exposes the same timer functions as the browser.</p>
+<pre>// 04-timers.js
+
+// Run once after 1 second
+setTimeout(() => {
+  console.log("setTimeout fired after 1 s");
+}, 1000);
+
+// Run every 500 ms, stop after 3 fires
+let count = 0;
+const id = setInterval(() => {
+  count++;
+  console.log(`setInterval tick #${count}`);
+  if (count === 3) clearInterval(id);
+}, 500);
+
+console.log("Timers registered — waiting...");</pre>
+    <p><strong>Output:</strong></p>
+<pre>Timers registered — waiting...
+setInterval tick #1
+setInterval tick #2
+setInterval tick #3
+setTimeout fired after 1 s</pre>
+
+    <!-- Example 5 -->
+    <h2>Example 5 — Simple HTTP Server</h2>
+    <p>Node.js has a built-in <code>http</code> module — no framework needed for a basic server.</p>
+<pre>// 05-http-server.js
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end(`Hello from Node.js!\nURL: ${req.url}\nMethod: ${req.method}\n`);
+});
+
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, "127.0.0.1", () => {
+  console.log(`Server running at http://127.0.0.1:${PORT}/`);
+});</pre>
+    <p><strong>Run:</strong></p>
+<pre>node 05-http-server.js</pre>
+    <p>Then open <a href="http://127.0.0.1:3000" target="_blank" rel="noopener"><code>http://127.0.0.1:3000</code></a> in your browser, or:</p>
+<pre>curl http://127.0.0.1:3000/hello</pre>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="learning.html" style="font-weight:600;color:var(--accent);">← Learning</a>
+      <a href="quiz.html" style="font-weight:600;color:var(--accent);">Quiz →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

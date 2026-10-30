@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 1 — Quiz | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 1</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="quiz.html" class="active">Quiz</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html" class="active">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 1 — Quiz</h1>
+    <p style="color:var(--muted);">Select the best answer for each question, then click <strong>Check</strong>.</p>
+
+    <!-- Q1 -->
+    <div class="quiz-block">
+      <p class="question">Q1. Which JavaScript engine powers Node.js?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q1" value="a"> SpiderMonkey</label>
+        <label><input type="radio" name="q1" value="b" data-correct="true"> V8</label>
+        <label><input type="radio" name="q1" value="c"> JavaScriptCore</label>
+        <label><input type="radio" name="q1" value="d"> Chakra</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-block">
+      <p class="question">Q2. What does <code>process.argv[0]</code> contain when you run <code>node script.js</code>?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q2" value="a"> The first user argument</label>
+        <label><input type="radio" name="q2" value="b"> The script filename</label>
+        <label><input type="radio" name="q2" value="c" data-correct="true"> The path to the <code>node</code> executable</label>
+        <label><input type="radio" name="q2" value="d"> <code>undefined</code></label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-block">
+      <p class="question">Q3. Which built-in library provides the event loop and async I/O in Node.js?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q3" value="a"> OpenSSL</label>
+        <label><input type="radio" name="q3" value="b" data-correct="true"> libuv</label>
+        <label><input type="radio" name="q3" value="c"> zlib</label>
+        <label><input type="radio" name="q3" value="d"> http-parser</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-block">
+      <p class="question">Q4. In a Node.js script, what does <code>__dirname</code> resolve to?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q4" value="a"> The current working directory</label>
+        <label><input type="radio" name="q4" value="b" data-correct="true"> The absolute path of the directory containing the current <em>file</em></label>
+        <label><input type="radio" name="q4" value="c"> The home directory of the OS user</label>
+        <label><input type="radio" name="q4" value="d"> The <code>node_modules</code> directory</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-block">
+      <p class="question">Q5. Which of the following is <strong>NOT</strong> available in Node.js (only in browsers)?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q5" value="a"> <code>console.log()</code></label>
+        <label><input type="radio" name="q5" value="b"> <code>setTimeout()</code></label>
+        <label><input type="radio" name="q5" value="c" data-correct="true"> <code>document.getElementById()</code></label>
+        <label><input type="radio" name="q5" value="d"> <code>process.exit()</code></label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">← Examples</a>
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">Exercises →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

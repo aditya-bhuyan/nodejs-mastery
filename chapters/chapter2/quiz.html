@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 2 — Quiz | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 2</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="quiz.html" class="active">Quiz</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html" class="active">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 2 — Quiz</h1>
+
+    <div class="quiz-block">
+      <p class="question">Q1. What does <code>module.exports</code> do in a CommonJS module?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q1" value="a"> It imports another module into the current file.</label>
+        <label><input type="radio" name="q1" value="b" data-correct="true"> It defines what the module exposes to other files that <code>require()</code> it.</label>
+        <label><input type="radio" name="q1" value="c"> It declares a globally scoped variable.</label>
+        <label><input type="radio" name="q1" value="d"> It compiles the module to machine code.</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q2. Which command creates a <code>package.json</code> with all defaults (no prompts)?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q2" value="a"> <code>npm create</code></label>
+        <label><input type="radio" name="q2" value="b"> <code>npm start</code></label>
+        <label><input type="radio" name="q2" value="c" data-correct="true"> <code>npm init -y</code></label>
+        <label><input type="radio" name="q2" value="d"> <code>npm install --init</code></label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q3. After the first <code>require("./math")</code>, what happens when the same file calls <code>require("./math")</code> again?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q3" value="a"> The file is re-read and re-executed from disk.</label>
+        <label><input type="radio" name="q3" value="b" data-correct="true"> The cached module export object is returned immediately.</label>
+        <label><input type="radio" name="q3" value="c"> An error is thrown because the module is already loaded.</label>
+        <label><input type="radio" name="q3" value="d"> A new isolated copy of the module is created.</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q4. Which built-in module provides cross-platform file path manipulation?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q4" value="a"> <code>fs</code></label>
+        <label><input type="radio" name="q4" value="b"> <code>url</code></label>
+        <label><input type="radio" name="q4" value="c" data-correct="true"> <code>path</code></label>
+        <label><input type="radio" name="q4" value="d"> <code>os</code></label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div class="quiz-block">
+      <p class="question">Q5. In a <code>package.json</code> version string <code>"^4.21.2"</code>, what does the <code>^</code> (caret) mean?</p>
+      <div class="quiz-options">
+        <label><input type="radio" name="q5" value="a"> Exactly version 4.21.2 — no updates allowed.</label>
+        <label><input type="radio" name="q5" value="b"> Any version 4.x.x equal to or greater than 4.21.2.</label>
+        <label><input type="radio" name="q5" value="c" data-correct="true"> Compatible with 4.21.2 — allows minor and patch updates within the same major version.</label>
+        <label><input type="radio" name="q5" value="d"> Any version greater than 4.21.2 including major upgrades.</label>
+      </div>
+      <div class="quiz-feedback"></div>
+      <button class="btn-check" onclick="checkQuiz(this)">Check</button>
+    </div>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">← Examples</a>
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">Exercises →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 3 — Async JS &amp; the Event Loop | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 3</h3>
+    <ul>
+      <li><a href="learning.html" class="active">Learning</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+    <br/>
+    <h3>Chapters</h3>
+    <ul>
+      <li><a href="../chapter2/learning.html">← Chapter 2</a></li>
+      <li><a href="../../index.html">Home →</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html" class="active">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 3 — Asynchronous JavaScript &amp; the Event Loop <span class="badge badge-amber">Intermediate</span></h1>
+
+    <h2>3.1 Why Asynchronous?</h2>
+    <p>
+      Node.js is <strong>single-threaded</strong> — there is only one main thread of execution.
+      If a long-running operation (reading a large file, querying a database, making an HTTP request) were to block this thread, no other request could be handled until it finished.
+    </p>
+    <p>
+      Asynchronous I/O solves this: instead of waiting, Node.js <em>registers a callback</em>, hands the work off to the OS or a thread-pool worker, and immediately continues processing other events.
+      When the work completes, the callback is placed on the <strong>event queue</strong> and executed when the call stack is empty.
+    </p>
+
+    <h2>3.2 The Event Loop</h2>
+    <p>The event loop runs continuously and processes tasks in phases:</p>
+    <ol>
+      <li><strong>timers</strong> — executes callbacks scheduled by <code>setTimeout</code> / <code>setInterval</code></li>
+      <li><strong>pending callbacks</strong> — I/O callbacks deferred from the previous iteration</li>
+      <li><strong>idle / prepare</strong> — internal use</li>
+      <li><strong>poll</strong> — retrieves new I/O events; blocks here when there is nothing to do</li>
+      <li><strong>check</strong> — <code>setImmediate</code> callbacks</li>
+      <li><strong>close callbacks</strong> — e.g. <code>socket.on("close", ...)</code></li>
+    </ol>
+    <p>Between each phase, Node.js drains the <strong>microtask queue</strong> (resolved Promises and <code>process.nextTick</code> callbacks).</p>
+
+    <h2>3.3 Callbacks</h2>
+    <p>The original async pattern in Node.js. The convention is <strong>error-first</strong>: the first argument of the callback is always an error (or <code>null</code>).</p>
+<pre>const fs = require("fs");
+
+fs.readFile("./data.txt", "utf8", (err, content) => {
+  if (err) {
+    console.error("Error reading file:", err.message);
+    return;
+  }
+  console.log(content);
+});
+
+console.log("This prints BEFORE the file is read!");</pre>
+    <p>Nested callbacks lead to <strong>"callback hell"</strong> — deeply indented, hard-to-read code. Promises were introduced to solve this.</p>
+
+    <h2>3.4 Promises</h2>
+    <p>
+      A <strong>Promise</strong> represents a value that will be available in the future.
+      It is either <em>pending</em>, <em>fulfilled</em>, or <em>rejected</em>.
+    </p>
+<pre>const fs = require("fs").promises; // or require("fs/promises")
+
+fs.readFile("./data.txt", "utf8")
+  .then(content => {
+    console.log(content);
+    return fs.writeFile("./copy.txt", content); // chain another promise
+  })
+  .then(() => console.log("File copied!"))
+  .catch(err => console.error("Error:", err.message))
+  .finally(() => console.log("Done."));</pre>
+
+    <h2>3.5 <code>async</code> / <code>await</code></h2>
+    <p>
+      <code>async/await</code> is syntactic sugar over Promises — it makes async code look and read like synchronous code.
+      An <code>async</code> function always returns a Promise.
+      <code>await</code> pauses execution of the <em>async function only</em> (not the entire thread) until the Promise resolves.
+    </p>
+<pre>const fs = require("fs/promises");
+
+async function copyFile(src, dest) {
+  try {
+    const content = await fs.readFile(src, "utf8");
+    await fs.writeFile(dest, content);
+    console.log(`Copied ${src} → ${dest}`);
+  } catch (err) {
+    console.error("Copy failed:", err.message);
+  }
+}
+
+copyFile("./data.txt", "./copy.txt");</pre>
+
+    <h2>3.6 <code>Promise.all</code>, <code>Promise.race</code>, <code>Promise.allSettled</code></h2>
+<pre>const p1 = fetch("https://api.example.com/users");
+const p2 = fetch("https://api.example.com/posts");
+
+// Wait for ALL to resolve (rejects if any rejects)
+const [users, posts] = await Promise.all([p1, p2]);
+
+// Resolve as soon as ONE resolves
+const first = await Promise.race([p1, p2]);
+
+// Wait for ALL, regardless of success/failure
+const results = await Promise.allSettled([p1, p2]);
+results.forEach(r => {
+  if (r.status === "fulfilled") console.log(r.value);
+  else console.error(r.reason);
+});</pre>
+
+    <h2>3.7 <code>process.nextTick</code> vs <code>setImmediate</code></h2>
+<pre>setImmediate(() => console.log("setImmediate"));
+process.nextTick(() => console.log("nextTick"));
+Promise.resolve().then(() => console.log("Promise microtask"));
+console.log("synchronous");</pre>
+    <p><strong>Output order:</strong></p>
+<pre>synchronous
+nextTick
+Promise microtask
+setImmediate</pre>
+    <p>
+      <code>process.nextTick</code> fires before the next event loop iteration — before Promises.
+      <code>setImmediate</code> fires in the <em>check</em> phase of the event loop.
+    </p>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="../chapter2/solutions.html" style="font-weight:600;color:var(--accent);">← Chapter 2</a>
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">Code Examples →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 2 — Solutions | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 2</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="solutions.html" class="active">Solutions</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html" class="active">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 2 — Solutions</h1>
+
+    <!-- Sol 1 -->
+    <div class="solution-block"><h4>Solution 1 — String Utilities Module</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// stringUtils.js
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function reverseWords(str) {
+  return str.split(" ").reverse().join(" ");
+}
+
+function countWords(str) {
+  return str.trim().split(/\s+/).length;
+}
+
+function isPalindrome(str) {
+  const clean = str.toLowerCase().replace(/[\s]/g, "");
+  return clean === clean.split("").reverse().join("");
+}
+
+module.exports = { capitalize, reverseWords, countWords, isPalindrome };</pre>
+
+<pre>// testStrings.js
+const { capitalize, reverseWords, countWords, isPalindrome } = require("./stringUtils");
+
+console.log(capitalize("hello world"));          // Hello world
+console.log(capitalize("nodejs"));               // Nodejs
+console.log(reverseWords("foo bar baz"));        // baz bar foo
+console.log(reverseWords("one two"));            // two one
+console.log(countWords("  hello   world  "));    // 2
+console.log(isPalindrome("racecar"));            // true
+console.log(isPalindrome("A man a plan a canal Panama")); // true
+console.log(isPalindrome("hello"));              // false</pre>
+    </details>
+
+    <!-- Sol 2 -->
+    <div class="solution-block"><h4>Solution 2 — File Info Tool</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// fileinfo.js
+const path = require("path");
+const fs   = require("fs");
+
+const input = process.argv[2];
+if (!input) {
+  console.error("Usage: node fileinfo.js <path>");
+  process.exit(1);
+}
+
+const abs = path.resolve(input);
+
+console.log("File name  :", path.basename(abs));
+console.log("Extension  :", path.extname(abs) || "(none)");
+console.log("Directory  :", path.dirname(abs));
+console.log("Exists     :", fs.existsSync(abs));</pre>
+    </details>
+
+    <!-- Sol 3 -->
+    <div class="solution-block"><h4>Solution 3 — Simple Calculator Module</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// calc.js
+const calc = {
+  add:      (a, b) => a + b,
+  subtract: (a, b) => a - b,
+  multiply: (a, b) => a * b,
+  divide(a, b) {
+    if (b === 0) throw new Error("Division by zero");
+    return a / b;
+  }
+};
+
+module.exports = calc;</pre>
+
+<pre>// runCalc.js
+const calc = require("./calc");
+
+console.log("10 + 3  =", calc.add(10, 3));       // 13
+console.log("10 - 3  =", calc.subtract(10, 3));  // 7
+console.log("10 * 3  =", calc.multiply(10, 3));  // 30
+console.log("10 / 2  =", calc.divide(10, 2));    // 5
+
+try {
+  calc.divide(5, 0);
+} catch (err) {
+  console.error("Caught:", err.message);          // Caught: Division by zero
+}</pre>
+    </details>
+
+    <!-- Sol 4 -->
+    <div class="solution-block"><h4>Solution 4 — System Report Script</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// sysreport.js
+const os = require("os");
+
+const totalRAM = (os.totalmem() / 1024 ** 3).toFixed(2);
+const freeRAM  = (os.freemem()  / 1024 ** 3).toFixed(2);
+
+const uptimeSec  = os.uptime();
+const hours      = Math.floor(uptimeSec / 3600);
+const minutes    = Math.floor((uptimeSec % 3600) / 60);
+const uptimeStr  = `${hours}h ${minutes}m`;
+
+console.log("=== System Report ===");
+console.log(`Hostname  : ${os.hostname()}`);
+console.log(`Platform  : ${os.platform()}`);
+console.log(`Arch      : ${os.arch()}`);
+console.log(`CPUs      : ${os.cpus().length}`);
+console.log(`Total RAM : ${totalRAM} GB`);
+console.log(`Free RAM  : ${freeRAM} GB`);
+console.log(`Uptime    : ${uptimeStr}`);</pre>
+    </details>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">← Exercises</a>
+      <a href="../chapter3/learning.html" style="font-weight:600;color:var(--accent);">Chapter 3 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

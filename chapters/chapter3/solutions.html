@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 3 — Solutions | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 3</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="solutions.html" class="active">Solutions</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html" class="active">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 3 — Solutions</h1>
+
+    <!-- Sol 1 -->
+    <div class="solution-block"><h4>Solution 1 — Promise-based Delay Utility</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// delay.js
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+module.exports = { delay };</pre>
+
+<pre>// main.js
+const { delay } = require("./delay");
+
+async function run() {
+  console.log("Step 1");
+  await delay(1000);
+  console.log("Step 2");
+  await delay(500);
+  console.log("Step 3 — done");
+}
+
+run();</pre>
+    </details>
+
+    <!-- Sol 2 -->
+    <div class="solution-block"><h4>Solution 2 — Async File Copier</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// copyfile.js
+const fs   = require("fs/promises");
+const path = require("path");
+
+async function copyFile(src, dest) {
+  const srcAbs  = path.resolve(src);
+  const destAbs = path.resolve(dest);
+
+  try {
+    const content = await fs.readFile(srcAbs);
+    await fs.writeFile(destAbs, content);
+    console.log(`Copied ${srcAbs} → ${destAbs}`);
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      console.error(`Error: source file not found — ${srcAbs}`);
+    } else {
+      console.error("Error:", err.message);
+    }
+    process.exit(1);
+  }
+}
+
+const [src, dest] = process.argv.slice(2);
+if (!src || !dest) {
+  console.error("Usage: node copyfile.js <source> <destination>");
+  process.exit(1);
+}
+
+copyFile(src, dest);</pre>
+      <p><strong>Key point:</strong> Reading the file as a Buffer (no <code>"utf8"</code> encoding) preserves binary files correctly.</p>
+    </details>
+
+    <!-- Sol 3 -->
+    <div class="solution-block"><h4>Solution 3 — Parallel vs Sequential Timing</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// timing.js
+const delay = ms => new Promise(r => setTimeout(r, ms));
+
+async function sequential() {
+  const start = Date.now();
+  await delay(1000);
+  await delay(1000);
+  console.log("Sequential elapsed:", Date.now() - start, "ms"); // ~2000 ms
+}
+
+async function parallel() {
+  const start = Date.now();
+  await Promise.all([delay(1000), delay(1000)]);
+  console.log("Parallel elapsed  :", Date.now() - start, "ms"); // ~1000 ms
+}
+
+async function main() {
+  await sequential();
+  await parallel();
+}
+
+main();</pre>
+    </details>
+
+    <!-- Sol 4 -->
+    <div class="solution-block"><h4>Solution 4 — Event Emitter Logger</h4></div>
+    <details>
+      <summary>Show solution</summary>
+<pre>// logger.js
+const EventEmitter = require("events");
+
+class Logger extends EventEmitter {
+  info(msg)  { this.emit("log",   { level: "INFO",  msg }); }
+  warn(msg)  { this.emit("log",   { level: "WARN",  msg }); }
+  error(msg) { this.emit("error", { level: "ERROR", msg }); }
+}
+
+module.exports = Logger;</pre>
+
+<pre>// app.js
+const Logger = require("./logger");
+const logger = new Logger();
+
+logger.on("log", ({ level, msg }) => {
+  console.log(`[${level}] ${msg}`);
+});
+
+logger.on("error", ({ level, msg }) => {
+  process.stderr.write(`[${level}] ${msg}\n`);
+});
+
+logger.info("Application started");
+logger.warn("Low memory warning");
+logger.error("Unhandled exception occurred");</pre>
+    </details>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="exercises.html" style="font-weight:600;color:var(--accent);">← Exercises</a>
+      <a href="../../index.html" style="font-weight:600;color:var(--accent);">Back to Home →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

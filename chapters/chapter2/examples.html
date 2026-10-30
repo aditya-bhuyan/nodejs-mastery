@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 2 — Examples | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 2</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html" class="active">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html" class="active">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 2 — Code Examples</h1>
+
+    <h2>Example 1 — Creating and Using a Module</h2>
+    <p>Two files in the same folder.</p>
+<pre>// utils.js
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function repeat(str, n) {
+  return str.repeat(n);
+}
+
+module.exports = { capitalize, repeat };</pre>
+<pre>// app.js
+const { capitalize, repeat } = require("./utils");
+
+console.log(capitalize("hello"));    // Hello
+console.log(repeat("ha", 3));        // hahaha</pre>
+
+    <h2>Example 2 — Using the <code>path</code> Module</h2>
+    <p>Path operations that work correctly on both Windows (backslash) and Unix (forward slash).</p>
+<pre>// path-demo.js
+const path = require("path");
+
+const fullPath = "/home/user/projects/app/src/index.js";
+
+console.log(path.basename(fullPath));           // index.js
+console.log(path.dirname(fullPath));            // /home/user/projects/app/src
+console.log(path.extname(fullPath));            // .js
+console.log(path.join("src", "utils", "db.js")); // src/utils/db.js (or src\utils\db.js on Windows)
+console.log(path.resolve("config", "app.json")); // absolute path</pre>
+
+    <h2>Example 3 — Using the <code>fs</code> Module (sync)</h2>
+    <p>Synchronous file reading — simple but blocks the event loop. Use only in startup scripts, not in servers.</p>
+<pre>// fs-sync.js
+const fs   = require("fs");
+const path = require("path");
+
+const filePath = path.join(__dirname, "sample.txt");
+
+// Write a file
+fs.writeFileSync(filePath, "Hello, filesystem!\nLine 2\n");
+
+// Read it back
+const content = fs.readFileSync(filePath, "utf8");
+console.log(content);
+
+// Delete the file
+fs.unlinkSync(filePath);</pre>
+
+    <h2>Example 4 — Using the <code>os</code> Module</h2>
+<pre>// os-demo.js
+const os = require("os");
+
+console.log("Platform   :", os.platform());   // win32 | darwin | linux
+console.log("Arch       :", os.arch());       // x64 | arm64
+console.log("Hostname   :", os.hostname());
+console.log("Home dir   :", os.homedir());
+console.log("CPUs       :", os.cpus().length);
+console.log("Free mem   :", (os.freemem() / 1024 ** 3).toFixed(2), "GB");
+console.log("Total mem  :", (os.totalmem() / 1024 ** 3).toFixed(2), "GB");</pre>
+
+    <h2>Example 5 — Installing and Using an npm Package (<code>chalk</code>)</h2>
+    <p>First install: <code>npm install chalk@4</code> (v4 is CommonJS-compatible).</p>
+<pre>// colors.js
+const chalk = require("chalk");
+
+console.log(chalk.green("✓ Success"));
+console.log(chalk.red("✗ Error"));
+console.log(chalk.yellow.bold("⚠ Warning"));
+console.log(chalk.blue(`Running Node.js ${process.version}`));</pre>
+    <p><strong>Run:</strong> <code>node colors.js</code></p>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="learning.html" style="font-weight:600;color:var(--accent);">← Learning</a>
+      <a href="quiz.html" style="font-weight:600;color:var(--accent);">Quiz →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

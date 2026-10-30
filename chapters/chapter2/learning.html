@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 2 — Modules, npm &amp; CommonJS | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 2</h3>
+    <ul>
+      <li><a href="learning.html" class="active">Learning</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+    <br/>
+    <h3>Chapters</h3>
+    <ul>
+      <li><a href="../chapter1/learning.html">← Chapter 1</a></li>
+      <li><a href="../chapter3/learning.html">Chapter 3 →</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html" class="active">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 2 — Modules, npm &amp; CommonJS <span class="badge badge-blue">Beginner</span></h1>
+
+    <h2>2.1 Why Modules?</h2>
+    <p>
+      As programs grow, keeping all code in one file becomes unmanageable.
+      <strong>Modules</strong> solve this by splitting code into separate files,
+      each with its own scope. Variables defined in one module are <em>not</em>
+      globally visible — you must explicitly export and import them.
+    </p>
+    <p>Node.js supports two module systems:</p>
+    <ul>
+      <li><strong>CommonJS (CJS)</strong> — <code>require()</code> / <code>module.exports</code> — the original Node.js system, still the default for <code>.js</code> files unless <code>"type":"module"</code> is in <code>package.json</code>.</li>
+      <li><strong>ES Modules (ESM)</strong> — <code>import</code> / <code>export</code> — the standard introduced with ES2015 (ES6); supported natively in Node.js 12+.</li>
+    </ul>
+    <p>This chapter focuses on CommonJS, which you will encounter in most existing Node.js codebases.</p>
+
+    <h2>2.2 CommonJS: <code>require()</code> and <code>module.exports</code></h2>
+    <p><code>require()</code> loads a module and returns whatever that module exported. Modules are <strong>cached</strong> after the first load — subsequent <code>require()</code> calls return the same object.</p>
+<pre>// math.js  — exporting multiple values
+function add(a, b) { return a + b; }
+function sub(a, b) { return a - b; }
+const PI = 3.14159;
+
+module.exports = { add, sub, PI };</pre>
+
+<pre>// app.js  — importing
+const math = require("./math");   // "./" = relative path
+
+console.log(math.add(3, 4));  // 7
+console.log(math.PI);         // 3.14159
+
+// Destructuring is common
+const { add, PI } = require("./math");
+console.log(add(1, 2));  // 3</pre>
+
+    <h2>2.3 Exporting a Single Value / Class</h2>
+<pre>// logger.js
+class Logger {
+  log(msg)   { console.log(`[INFO]  ${msg}`); }
+  error(msg) { console.error(`[ERROR] ${msg}`); }
+}
+
+module.exports = Logger;  // export the class itself</pre>
+
+<pre>// app.js
+const Logger = require("./logger");
+const log = new Logger();
+log.log("Server started");   // [INFO]  Server started</pre>
+
+    <h2>2.4 Built-in Modules</h2>
+    <p>Node.js ships with many useful modules. Import them without a path prefix:</p>
+    <table style="width:100%;border-collapse:collapse;font-size:0.9rem;margin:0.8rem 0 1.2rem;">
+      <thead>
+        <tr style="background:var(--surface);">
+          <th style="padding:0.5rem 0.9rem;text-align:left;border:1px solid var(--border);">Module</th>
+          <th style="padding:0.5rem 0.9rem;text-align:left;border:1px solid var(--border);">Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);"><code>fs</code></td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">Read and write files</td></tr>
+        <tr style="background:var(--surface);"><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);"><code>path</code></td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">Manipulate file paths portably</td></tr>
+        <tr><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);"><code>os</code></td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">OS info (platform, CPUs, memory)</td></tr>
+        <tr style="background:var(--surface);"><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);"><code>http</code> / <code>https</code></td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">HTTP/S servers and clients</td></tr>
+        <tr><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);"><code>events</code></td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">EventEmitter pattern</td></tr>
+        <tr style="background:var(--surface);"><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);"><code>stream</code></td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">Readable / Writable streams</td></tr>
+        <tr><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);"><code>crypto</code></td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">Cryptographic operations</td></tr>
+        <tr style="background:var(--surface);"><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);"><code>url</code></td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">URL parsing and formatting</td></tr>
+        <tr><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);"><code>util</code></td><td style="padding:0.4rem 0.9rem;border:1px solid var(--border);">Utility functions (promisify, inspect)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>2.5 npm and <code>package.json</code></h2>
+    <p>
+      <strong>npm</strong> (Node Package Manager) is bundled with Node.js.
+      It lets you install, publish, and manage third-party packages from <a href="https://www.npmjs.com" target="_blank" rel="noopener">npmjs.com</a>.
+    </p>
+<pre># Initialise a new project (creates package.json)
+npm init -y
+
+# Install a package and save it as a dependency
+npm install express
+
+# Install a dev-only dependency (not needed in production)
+npm install --save-dev nodemon
+
+# Install all dependencies listed in package.json
+npm install
+
+# Remove a package
+npm uninstall express</pre>
+
+    <h2>2.6 <code>package.json</code> Explained</h2>
+<pre>{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js app",
+  "main": "index.js",         // entry point
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"  // run with: npm run dev
+  },
+  "dependencies": {
+    "express": "^4.21.2"      // ^ = compatible with 4.x.x
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "license": "GPL-3.0"
+}</pre>
+
+    <h2>2.7 ES Modules (ESM) — Quick Overview</h2>
+    <p>Set <code>"type": "module"</code> in <code>package.json</code> to use <code>import</code> / <code>export</code>:</p>
+<pre>// math.mjs  (or .js with "type":"module")
+export const add = (a, b) => a + b;
+export default function multiply(a, b) { return a * b; }
+
+// app.mjs
+import multiply, { add } from "./math.mjs";
+console.log(add(2, 3));       // 5
+console.log(multiply(4, 5));  // 20</pre>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="../chapter1/solutions.html" style="font-weight:600;color:var(--accent);">← Chapter 1</a>
+      <a href="examples.html" style="font-weight:600;color:var(--accent);">Code Examples →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

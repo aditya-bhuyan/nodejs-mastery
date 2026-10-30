@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 3 — Exercises | Node.js Mastery</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="../../index.html">Node<span>.js</span> Mastery</a>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../intro/index.html">Intro</a>
+    <a href="learning.html" class="active">Chapters</a>
+    <a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="sidebar-layout">
+  <aside class="sidebar">
+    <h3>Chapter 3</h3>
+    <ul>
+      <li><a href="learning.html">Learning</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="exercises.html" class="active">Exercises</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <div class="chapter-tabs">
+      <a href="learning.html">📖 Learning</a>
+      <a href="examples.html">💻 Examples</a>
+      <a href="quiz.html">🧠 Quiz</a>
+      <a href="exercises.html" class="active">🛠 Exercises</a>
+      <a href="solutions.html">✅ Solutions</a>
+    </div>
+
+    <h1>Chapter 3 — Coding Exercises</h1>
+
+    <div class="exercise-block">
+      <h4>Exercise 1 — Promise-based Delay Utility</h4>
+      <p>Create <code>delay.js</code> that exports a <code>delay(ms)</code> function returning a Promise that resolves after <code>ms</code> milliseconds.</p>
+      <p>Then write a <code>main.js</code> that uses <code>async/await</code> to:</p>
+      <ol>
+        <li>Print <code>"Step 1"</code></li>
+        <li>Wait 1 second</li>
+        <li>Print <code>"Step 2"</code></li>
+        <li>Wait 500 ms</li>
+        <li>Print <code>"Step 3 — done"</code></li>
+      </ol>
+    </div>
+
+    <div class="exercise-block">
+      <h4>Exercise 2 — Async File Copier</h4>
+      <p>
+        Create <code>copyfile.js</code> that accepts <code>source</code> and <code>destination</code> as command-line arguments
+        and copies the source file to the destination using <code>fs/promises</code> and <code>async/await</code>.
+      </p>
+      <p>Requirements:</p>
+      <ul>
+        <li>If the source file does not exist, print a clear error and exit with code 1.</li>
+        <li>On success, print: <code>Copied &lt;src&gt; → &lt;dest&gt;</code></li>
+      </ul>
+<pre>node copyfile.js README.md README.backup.md</pre>
+    </div>
+
+    <div class="exercise-block">
+      <h4>Exercise 3 — Parallel vs Sequential Timing</h4>
+      <p>
+        Create <code>timing.js</code>. Using your <code>delay</code> utility (or inline),
+        demonstrate the difference in total time between:
+      </p>
+      <ol>
+        <li><strong>Sequential:</strong> <code>await delay(1000)</code> then <code>await delay(1000)</code> — should take ~2 s</li>
+        <li><strong>Parallel:</strong> <code>await Promise.all([delay(1000), delay(1000)])</code> — should take ~1 s</li>
+      </ol>
+      <p>Print the elapsed time (in ms) for each approach using <code>Date.now()</code> or <code>performance.now()</code>.</p>
+    </div>
+
+    <div class="exercise-block">
+      <h4>Exercise 4 — Event Emitter Logger</h4>
+      <p>Create <code>logger.js</code> that exports a <code>Logger</code> class extending <code>EventEmitter</code> with three methods:</p>
+      <ul>
+        <li><code>info(msg)</code> — emits an <code>"log"</code> event with <code>{ level: "INFO", msg }</code></li>
+        <li><code>warn(msg)</code> — emits a <code>"log"</code> event with <code>{ level: "WARN", msg }</code></li>
+        <li><code>error(msg)</code> — emits an <code>"error"</code> event with <code>{ level: "ERROR", msg }</code></li>
+      </ul>
+      <p>
+        In <code>app.js</code>, instantiate the logger, register a listener for <code>"log"</code> that prints
+        <code>[LEVEL] message</code>, register a listener for <code>"error"</code> that prints to <code>stderr</code>,
+        then call each method once.
+      </p>
+    </div>
+
+    <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;">
+      <a href="quiz.html" style="font-weight:600;color:var(--accent);">← Quiz</a>
+      <a href="solutions.html" style="font-weight:600;color:var(--accent);">Solutions →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2024 <a href="https://linkedin.com/in/adityabhuyan" target="_blank" rel="noopener">Aditya Pratap Bhuyan</a> — GNU GPL v3</span>
+  <span><a href="https://github.com/aditya-bhuyan/nodejs-mastery" target="_blank" rel="noopener">GitHub</a> · <a href="../../LICENSE">License</a></span>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
